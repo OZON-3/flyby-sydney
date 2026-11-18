@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "size": 2048,
+  "cellMetres": 10,
+  "heightUnitMetres": 2,
+  "centre": {
+    "lat": -33.857,
+    "lng": 151.219
+  },
+  "bbox": {
+    "west": 151.10822968334998,
+    "south": -33.949607665454806,
+    "east": 151.32977031665,
+    "north": -33.76439233454519
+  },
+  "attribution": "© OpenStreetMap contributors · OpenMapTiles · OpenFreeMap · Overpass API · Elevation: AWS Terrain Tiles (Mapzen)",
+  "sources": [
+    {
+      "name": "OpenStreetMap data via OpenFreeMap vector tiles (OpenMapTiles schema), snapshot 2026-11-15",
+      "url": "https://tiles.openfreemap.org/planet",
+      "licence": "ODbL 1.0 (© OpenStreetMap contributors); OpenMapTiles schema © OpenMapTiles (BSD-3 / CC-BY 4.0)",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "name": "AWS Terrain Tiles (Mapzen terrarium elevation)",
+      "url": "https://registry.opendata.aws/terrain-tiles/",
+      "licence": "Open terms of the Terrain Tiles sources; attribution as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+      "retrieved": "2026-11-18"
+    },
+    {
+      "name": "OpenStreetMap data via the Overpass API (named beaches, islands, parks and venues the tiles leave out)",
+      "url": "https://overpass-api.de/api/interpreter",
+      "licence": "ODbL 1.0 (© OpenStreetMap contributors)",
+      "retrieved": "2026-11-18"
+    }
+  ],
+  "bakedAt": "2026-11-18T09:22:34.103Z"
+}
