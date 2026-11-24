@@ -1,0 +1,72 @@
+{
+  "feed": "flight",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 2,
+  "records": [
+    {
+      "id": "manoeuvre-default",
+      "revision": 1,
+      "sample": true,
+      "type": "manoeuvre-style",
+      "bankFullDeg": 55,
+      "bankTauSec": 0.28,
+      "pitchFollow01": 0.35,
+      "rollFollow01": 0.3,
+      "wingRockAmpDeg": 0,
+      "wingRockHz": 0
+    },
+    {
+      "id": "landing-default",
+      "revision": 1,
+      "sample": true,
+      "type": "landing-feel",
+      "gearDownAglMetres": 60,
+      "touchdownTrauma01": 0.15,
+      "sprayOnWater": true
+    },
+    {
+      "id": "transition-fly-walk",
+      "revision": 1,
+      "sample": true,
+      "type": "transition",
+      "fromMode": "fly",
+      "toMode": "walk",
+      "touchdownPatchId": "touchdown-chirp",
+      "settleSec": 0.8,
+      "surfaceEffectId": "spray-water"
+    },
+    {
+      "id": "transition-walk-fly",
+      "revision": 1,
+      "sample": true,
+      "type": "transition",
+      "fromMode": "walk",
+      "toMode": "fly",
+      "settleSec": 0.6,
+      "surfaceEffectId": "dust-sand"
+    },
+    {
+      "id": "transition-walk-drive",
+      "revision": 1,
+      "sample": true,
+      "type": "transition",
+      "fromMode": "walk",
+      "toMode": "drive",
+      "settleSec": 0.5,
+      "surfaceEffectId": "none"
+    },
+    {
+      "id": "transition-drive-walk",
+      "revision": 1,
+      "sample": true,
+      "type": "transition",
+      "fromMode": "drive",
+      "toMode": "walk",
+      "settleSec": 0.5,
+      "surfaceEffectId": "none"
+    }
+  ]
+}

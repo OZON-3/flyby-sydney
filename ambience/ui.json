@@ -1,0 +1,204 @@
+{
+  "feed": "ui",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 2,
+  "records": [
+    {
+      "id": "sting-music",
+      "revision": 1,
+      "sample": true,
+      "type": "category-sting",
+      "category": "music",
+      "notes": [
+        0,
+        4,
+        7
+      ],
+      "tempoBpm": 180,
+      "patchId": "ui-sting"
+    },
+    {
+      "id": "sting-arts",
+      "revision": 1,
+      "sample": true,
+      "type": "category-sting",
+      "category": "arts",
+      "notes": [
+        0,
+        3,
+        10
+      ],
+      "tempoBpm": 180,
+      "patchId": "ui-sting"
+    },
+    {
+      "id": "sting-food",
+      "revision": 1,
+      "sample": true,
+      "type": "category-sting",
+      "category": "food",
+      "notes": [
+        0,
+        5,
+        9
+      ],
+      "tempoBpm": 180,
+      "patchId": "ui-sting"
+    },
+    {
+      "id": "sting-markets",
+      "revision": 1,
+      "sample": true,
+      "type": "category-sting",
+      "category": "markets",
+      "notes": [
+        0,
+        2,
+        7
+      ],
+      "tempoBpm": 180,
+      "patchId": "ui-sting"
+    },
+    {
+      "id": "sting-sport",
+      "revision": 1,
+      "sample": true,
+      "type": "category-sting",
+      "category": "sport",
+      "notes": [
+        0,
+        7,
+        12
+      ],
+      "tempoBpm": 180,
+      "patchId": "ui-sting"
+    },
+    {
+      "id": "sting-nightlife",
+      "revision": 1,
+      "sample": true,
+      "type": "category-sting",
+      "category": "nightlife",
+      "notes": [
+        0,
+        3,
+        7
+      ],
+      "tempoBpm": 180,
+      "patchId": "ui-sting"
+    },
+    {
+      "id": "sting-comedy",
+      "revision": 1,
+      "sample": true,
+      "type": "category-sting",
+      "category": "comedy",
+      "notes": [
+        0,
+        6,
+        7
+      ],
+      "tempoBpm": 180,
+      "patchId": "ui-sting"
+    },
+    {
+      "id": "sting-family",
+      "revision": 1,
+      "sample": true,
+      "type": "category-sting",
+      "category": "family",
+      "notes": [
+        0,
+        4,
+        12
+      ],
+      "tempoBpm": 180,
+      "patchId": "ui-sting"
+    },
+    {
+      "id": "sting-outdoors",
+      "revision": 1,
+      "sample": true,
+      "type": "category-sting",
+      "category": "outdoors",
+      "notes": [
+        0,
+        2,
+        9
+      ],
+      "tempoBpm": 180,
+      "patchId": "ui-sting"
+    },
+    {
+      "id": "sting-festival",
+      "revision": 1,
+      "sample": true,
+      "type": "category-sting",
+      "category": "festival",
+      "notes": [
+        0,
+        4,
+        7
+      ],
+      "tempoBpm": 180,
+      "patchId": "ui-sting"
+    },
+    {
+      "id": "cue-lock-tick",
+      "revision": 1,
+      "sample": true,
+      "type": "ui-cue",
+      "trigger": "lock-tick",
+      "visualPresetId": "lock-ring-steps",
+      "durationMs": 60,
+      "soundPatchId": "ui-lock-tick",
+      "reducedMotionPresetId": "cut"
+    },
+    {
+      "id": "cue-lock-full",
+      "revision": 1,
+      "sample": true,
+      "type": "ui-cue",
+      "trigger": "lock-full",
+      "visualPresetId": "lock-ring-steps",
+      "durationMs": 150,
+      "soundPatchId": "ui-lock-clunk",
+      "reducedMotionPresetId": "cut"
+    },
+    {
+      "id": "cue-card-open",
+      "revision": 1,
+      "sample": true,
+      "type": "ui-cue",
+      "trigger": "card-open",
+      "visualPresetId": "card-rise-steps",
+      "durationMs": 220,
+      "reducedMotionPresetId": "cut"
+    },
+    {
+      "id": "cue-place-banner",
+      "revision": 1,
+      "sample": true,
+      "type": "ui-cue",
+      "trigger": "place-banner",
+      "visualPresetId": "banner-flip",
+      "durationMs": 300,
+      "soundPatchId": "banner-flip",
+      "reducedMotionPresetId": "cut"
+    },
+    {
+      "id": "cue-discovery",
+      "revision": 1,
+      "sample": true,
+      "type": "ui-cue",
+      "trigger": "discovery",
+      "visualPresetId": "title-card-slide",
+      "durationMs": 2400,
+      "soundPatchId": "chime-major",
+      "reducedMotionPresetId": "cut"
+    }
+  ]
+}

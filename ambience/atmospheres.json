@@ -1,0 +1,123 @@
+{
+  "feed": "atmospheres",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 2,
+  "records": [
+    {
+      "id": "atm-sample-opera-tides",
+      "revision": 1,
+      "sample": true,
+      "eventId": "sample-opera-tides",
+      "status": "scheduled",
+      "presetId": "orchestra",
+      "classification": {
+        "method": "hand-made",
+        "version": "sample-1"
+      },
+      "indoor": true,
+      "attendance": 120,
+      "crowd": {
+        "spreadMetres": 60,
+        "behaviour": "stream"
+      },
+      "stage": {
+        "lat": -33.85712,
+        "lng": 151.21516,
+        "headingDeg": 200,
+        "widthMetres": 30
+      },
+      "palette": [
+        "#ff5d8f",
+        "#ffd6e4",
+        "#6b5bff"
+      ],
+      "music": {
+        "style": "strings-swell",
+        "bpm": 72,
+        "key": "D",
+        "energy01": 0.45
+      },
+      "lights": {
+        "beams": 0,
+        "sweepDegPerSec": 0,
+        "strobe": false,
+        "skyGlow01": 0.15
+      },
+      "phases": [
+        {
+          "offsetSec": -2700,
+          "intensity01": 0.1
+        },
+        {
+          "offsetSec": -900,
+          "intensity01": 0.5
+        },
+        {
+          "offsetSec": 0,
+          "intensity01": 0.8
+        },
+        {
+          "offsetSec": 3600,
+          "intensity01": 0.6
+        },
+        {
+          "offsetSec": 7800,
+          "intensity01": 1.0
+        },
+        {
+          "offsetSec": 8400,
+          "intensity01": 0.3
+        }
+      ],
+      "cues": [
+        {
+          "id": "doors",
+          "at": "19:30",
+          "cue": "doors",
+          "intensity01": 0.4
+        },
+        {
+          "id": "interval",
+          "at": "+60",
+          "cue": "interval",
+          "intensity01": 0.5
+        },
+        {
+          "id": "encore",
+          "at": "+125",
+          "cue": "encore",
+          "intensity01": 0.8
+        },
+        {
+          "id": "final-cheer",
+          "at": "+133",
+          "cue": "cheer",
+          "intensity01": 1.0
+        }
+      ],
+      "dispersalPaths": [
+        {
+          "kind": "path",
+          "line": [
+            [
+              151.21516,
+              -33.8576
+            ],
+            [
+              151.2139,
+              -33.8596
+            ],
+            [
+              151.2118,
+              -33.8609
+            ]
+          ],
+          "widthMetres": 12
+        }
+      ]
+    }
+  ]
+}

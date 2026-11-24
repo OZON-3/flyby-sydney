@@ -1,0 +1,1635 @@
+{
+  "feed": "patches",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 2,
+  "records": [
+    {
+      "id": "jet-whine",
+      "revision": 3,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "osc-saw",
+          "freqHz": 220,
+          "gain01": 0.1,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 1500,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "osc-sine",
+          "freqHz": 1320,
+          "gain01": 0.07
+        }
+      ]
+    },
+    {
+      "id": "jet-roar",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.6,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 180,
+            "q": 0.8
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.12,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 900,
+            "q": 0.8
+          }
+        }
+      ]
+    },
+    {
+      "id": "boost-crackle",
+      "revision": 3,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.5,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1500,
+            "q": 0.6
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.25,
+          "filter": {
+            "type": "highpass",
+            "freqHz": 6000,
+            "q": 0.7
+          }
+        }
+      ],
+      "amMod": {
+        "rateHz": 18,
+        "depth01": 0.75
+      }
+    },
+    {
+      "id": "wind-rush",
+      "revision": 1,
+      "sample": true,
+      "bus": "wind",
+      "layers": [
+        {
+          "src": "noise-pink",
+          "gain01": 0.6,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 800,
+            "q": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "step-paving",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.6,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1600,
+            "q": 0.9
+          }
+        },
+        {
+          "src": "noise-brown",
+          "gain01": 0.25,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 400,
+            "q": 0.7
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.004,
+        "holdSec": 0.01,
+        "releaseSec": 0.06
+      },
+      "randomise": {
+        "pitchCents": 200,
+        "gainDb": 3
+      }
+    },
+    {
+      "id": "step-grass",
+      "revision": 3,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-pink",
+          "gain01": 0.85,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 900,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.3,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 3000,
+            "q": 0.7
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.005,
+        "holdSec": 0.02,
+        "releaseSec": 0.08
+      },
+      "randomise": {
+        "pitchCents": 200,
+        "gainDb": 3
+      }
+    },
+    {
+      "id": "step-sand",
+      "revision": 3,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.5,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 4500,
+            "q": 1.4
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.56,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 600,
+            "q": 0.8
+          }
+        }
+      ],
+      "amMod": {
+        "rateHz": 45,
+        "depth01": 0.6
+      },
+      "envelope": {
+        "attackSec": 0.008,
+        "holdSec": 0.025,
+        "releaseSec": 0.1
+      },
+      "randomise": {
+        "pitchCents": 200,
+        "gainDb": 3
+      }
+    },
+    {
+      "id": "step-deck",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "osc-tri",
+          "freqHz": 180,
+          "gain01": 0.25
+        },
+        {
+          "src": "noise-brown",
+          "gain01": 0.5,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 400,
+            "q": 1
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 1.0,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1500,
+            "q": 1.5
+          },
+          "decaySec": 0.04
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.002,
+        "holdSec": 0.01,
+        "releaseSec": 0.15
+      },
+      "randomise": {
+        "pitchCents": 150,
+        "gainDb": 3
+      }
+    },
+    {
+      "id": "step-road",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.6,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1400,
+            "q": 1.0
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.003,
+        "holdSec": 0.01,
+        "releaseSec": 0.07
+      },
+      "randomise": {
+        "pitchCents": 200,
+        "gainDb": 3
+      }
+    },
+    {
+      "id": "step-stairs",
+      "revision": 3,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.4,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 2200,
+            "q": 1.0
+          }
+        },
+        {
+          "src": "osc-tri",
+          "freqHz": 140,
+          "gain01": 0.25
+        },
+        {
+          "src": "osc-sine",
+          "freqHz": 420,
+          "gain01": 0.2
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.6,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 600,
+            "q": 1.2
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.003,
+        "holdSec": 0.01,
+        "releaseSec": 0.09
+      },
+      "randomise": {
+        "pitchCents": 150,
+        "gainDb": 3
+      }
+    },
+    {
+      "id": "step-wet",
+      "revision": 4,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-pink",
+          "gain01": 1.0,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1200,
+            "q": 1.2
+          },
+          "decaySec": 0.1
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 1.0,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1100,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.2,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 2800,
+            "q": 0.9
+          },
+          "decaySec": 0.025
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.003,
+        "holdSec": 0.015,
+        "releaseSec": 0.15
+      },
+      "randomise": {
+        "pitchCents": 200,
+        "gainDb": 3
+      }
+    },
+    {
+      "id": "car-engine",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "osc-saw",
+          "freqHz": 90,
+          "gain01": 0.28,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 700,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "osc-square",
+          "freqHz": 45,
+          "gain01": 0.12,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 400,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "osc-saw",
+          "freqHz": 270,
+          "gain01": 0.3,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1100,
+            "q": 1.4
+          }
+        }
+      ]
+    },
+    {
+      "id": "car-road",
+      "revision": 1,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-pink",
+          "gain01": 0.5,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 600,
+            "q": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "tyre-hum",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-pink",
+          "gain01": 0.35,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 650,
+            "q": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "id": "handbrake-ratchet",
+      "revision": 1,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "osc-square",
+          "freqHz": 1900,
+          "gain01": 0.12,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 2200,
+            "q": 3
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.3,
+          "filter": {
+            "type": "highpass",
+            "freqHz": 3000,
+            "q": 0.7
+          },
+          "decaySec": 0.02
+        }
+      ],
+      "amMod": {
+        "rateHz": 38,
+        "depth01": 0.9
+      },
+      "envelope": {
+        "attackSec": 0.002,
+        "holdSec": 0.09,
+        "releaseSec": 0.04
+      }
+    },
+    {
+      "id": "car-kerb",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.8,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 250,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "osc-sine",
+          "freqHz": 70,
+          "gain01": 0.5
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.7,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1200,
+            "q": 1.2
+          },
+          "decaySec": 0.05
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.002,
+        "holdSec": 0.03,
+        "releaseSec": 0.18
+      }
+    },
+    {
+      "id": "car-door",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.7,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 400,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "osc-square",
+          "freqHz": 110,
+          "gain01": 0.2,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 600,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.45,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1600,
+            "q": 1.2
+          },
+          "decaySec": 0.03
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.001,
+        "holdSec": 0.02,
+        "releaseSec": 0.12
+      }
+    },
+    {
+      "id": "indicator-tick",
+      "revision": 1,
+      "sample": true,
+      "bus": "ui",
+      "layers": [
+        {
+          "src": "osc-square",
+          "freqHz": 1400,
+          "gain01": 0.2,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1400,
+            "q": 4
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.001,
+        "holdSec": 0.004,
+        "releaseSec": 0.02
+      }
+    },
+    {
+      "id": "water-lap",
+      "revision": 2,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.6,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 500,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.08,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1500,
+            "q": 0.8
+          }
+        }
+      ],
+      "amMod": {
+        "rateHz": 0.3,
+        "depth01": 0.5
+      }
+    },
+    {
+      "id": "crowd-murmur",
+      "revision": 2,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "noise-pink",
+          "gain01": 0.5,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 700,
+            "q": 1.2
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.35,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1800,
+            "q": 2
+          }
+        }
+      ],
+      "amMod": {
+        "rateHz": 4,
+        "depth01": 0.3
+      }
+    },
+    {
+      "id": "gull-cry",
+      "revision": 1,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "osc-saw",
+          "freqHz": 1800,
+          "gain01": 0.25,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 2200,
+            "q": 3
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.02,
+        "holdSec": 0.1,
+        "releaseSec": 0.3
+      },
+      "pitchGlide": {
+        "fromRatio": 1.3,
+        "toRatio": 0.8,
+        "sec": 0.4
+      },
+      "randomise": {
+        "pitchCents": 300,
+        "gainDb": 4,
+        "intervalSec": [
+          6,
+          20
+        ]
+      }
+    },
+    {
+      "id": "ferry-engine",
+      "revision": 2,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.5,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 120,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.06,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 600,
+            "q": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ferry-horn",
+      "revision": 1,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "osc-saw",
+          "freqHz": 155,
+          "gain01": 0.3,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 1200,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "osc-saw",
+          "freqHz": 196,
+          "gain01": 0.25,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 1200,
+            "q": 0.7
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.15,
+        "holdSec": 1.5,
+        "releaseSec": 0.6
+      }
+    },
+    {
+      "id": "crowd-cheer",
+      "revision": 1,
+      "sample": true,
+      "bus": "event",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.4,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1200,
+            "q": 1.2
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.5,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 600,
+            "q": 1.0
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.3,
+        "holdSec": 1.5,
+        "releaseSec": 2.0
+      }
+    },
+    {
+      "id": "strings-pad",
+      "revision": 1,
+      "sample": true,
+      "bus": "event",
+      "layers": [
+        {
+          "src": "osc-saw",
+          "freqHz": 220,
+          "gain01": 0.2,
+          "detuneCents": -6,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 1200,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "osc-saw",
+          "freqHz": 330,
+          "gain01": 0.15,
+          "detuneCents": 6,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 1200,
+            "q": 0.7
+          }
+        }
+      ],
+      "amMod": {
+        "rateHz": 5,
+        "depth01": 0.1
+      }
+    },
+    {
+      "id": "ui-lock-tick",
+      "revision": 2,
+      "sample": true,
+      "bus": "ui",
+      "layers": [
+        {
+          "src": "osc-tri",
+          "freqHz": 660,
+          "gain01": 0.15,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 1600,
+            "q": 0.7
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.003,
+        "holdSec": 0.004,
+        "releaseSec": 0.025
+      }
+    },
+    {
+      "id": "ui-lock-clunk",
+      "revision": 3,
+      "sample": true,
+      "bus": "ui",
+      "layers": [
+        {
+          "src": "osc-sine",
+          "freqHz": 140,
+          "gain01": 0.5
+        },
+        {
+          "src": "noise-brown",
+          "gain01": 0.4,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 300,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "osc-sine",
+          "freqHz": 1120,
+          "gain01": 0.08,
+          "decaySec": 0.05
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.002,
+        "holdSec": 0.02,
+        "releaseSec": 0.12
+      }
+    },
+    {
+      "id": "ui-sting",
+      "revision": 1,
+      "sample": true,
+      "bus": "ui",
+      "layers": [
+        {
+          "src": "osc-tri",
+          "freqHz": 660,
+          "gain01": 0.3
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.005,
+        "holdSec": 0.05,
+        "releaseSec": 0.25
+      }
+    },
+    {
+      "id": "chime-major",
+      "revision": 1,
+      "sample": true,
+      "bus": "ui",
+      "layers": [
+        {
+          "src": "osc-sine",
+          "freqHz": 1046.5,
+          "gain01": 0.25
+        },
+        {
+          "src": "osc-sine",
+          "freqHz": 1318.5,
+          "gain01": 0.2
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.005,
+        "holdSec": 0.1,
+        "releaseSec": 1.2
+      }
+    },
+    {
+      "id": "banner-flip",
+      "revision": 1,
+      "sample": true,
+      "bus": "ui",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.2,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 3000,
+            "q": 2
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.001,
+        "holdSec": 0.01,
+        "releaseSec": 0.04
+      }
+    },
+    {
+      "id": "dawn-chorus",
+      "revision": 1,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.2,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 3500,
+            "q": 4
+          }
+        }
+      ],
+      "amMod": {
+        "rateHz": 9,
+        "depth01": 0.8
+      }
+    },
+    {
+      "id": "night-hush",
+      "revision": 1,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.25,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 200,
+            "q": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "evening-buzz",
+      "revision": 1,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "noise-pink",
+          "gain01": 0.3,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 700,
+            "q": 1.2
+          }
+        }
+      ],
+      "amMod": {
+        "rateHz": 2,
+        "depth01": 0.4
+      }
+    },
+    {
+      "id": "hover-roar",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.85,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 150,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.22,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 800,
+            "q": 0.7
+          }
+        }
+      ],
+      "amMod": {
+        "rateHz": 7,
+        "depth01": 0.12
+      }
+    },
+    {
+      "id": "nozzle-whine",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "osc-saw",
+          "freqHz": 620,
+          "gain01": 0.18,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1250,
+            "q": 3
+          }
+        },
+        {
+          "src": "osc-tri",
+          "freqHz": 1240,
+          "gain01": 0.12
+        }
+      ]
+    },
+    {
+      "id": "boost-thump",
+      "revision": 3,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "osc-sine",
+          "freqHz": 48,
+          "gain01": 0.65
+        },
+        {
+          "src": "noise-brown",
+          "gain01": 0.6,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 220,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.6,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1400,
+            "q": 0.8
+          },
+          "decaySec": 0.09
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.004,
+        "holdSec": 0.06,
+        "releaseSec": 0.55
+      },
+      "pitchGlide": {
+        "fromRatio": 2,
+        "toRatio": 0.7,
+        "sec": 0.3
+      }
+    },
+    {
+      "id": "gear-clunk",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.7,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 320,
+            "q": 1.2
+          }
+        },
+        {
+          "src": "osc-square",
+          "freqHz": 85,
+          "gain01": 0.15,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 300,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.5,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1800,
+            "q": 2
+          },
+          "decaySec": 0.04
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.002,
+        "holdSec": 0.03,
+        "releaseSec": 0.16
+      },
+      "randomise": {
+        "pitchCents": 60,
+        "gainDb": 1.5
+      }
+    },
+    {
+      "id": "touchdown-chirp",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.3,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 2200,
+            "q": 3
+          }
+        },
+        {
+          "src": "osc-saw",
+          "gain01": 0.12,
+          "freqHz": 900,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1800,
+            "q": 2
+          }
+        },
+        {
+          "src": "noise-brown",
+          "gain01": 0.5,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 200,
+            "q": 0.7
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.004,
+        "holdSec": 0.06,
+        "releaseSec": 0.18
+      },
+      "pitchGlide": {
+        "fromRatio": 1.4,
+        "toRatio": 0.7,
+        "sec": 0.2
+      },
+      "randomise": {
+        "pitchCents": 80,
+        "gainDb": 1.5
+      }
+    },
+    {
+      "id": "touchdown-thump",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 1.0,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 180,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "osc-sine",
+          "freqHz": 58,
+          "gain01": 0.8
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.9,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 900,
+            "q": 1
+          },
+          "decaySec": 0.12
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.006,
+        "holdSec": 0.05,
+        "releaseSec": 0.4
+      },
+      "pitchGlide": {
+        "fromRatio": 1.3,
+        "toRatio": 0.8,
+        "sec": 0.25
+      }
+    },
+    {
+      "id": "liftoff-clunk",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.6,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 400,
+            "q": 1.4
+          }
+        },
+        {
+          "src": "osc-tri",
+          "freqHz": 120,
+          "gain01": 0.15
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.35,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1500,
+            "q": 1.5
+          },
+          "decaySec": 0.04
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.002,
+        "holdSec": 0.02,
+        "releaseSec": 0.12
+      },
+      "pitchGlide": {
+        "fromRatio": 0.9,
+        "toRatio": 1.2,
+        "sec": 0.12
+      }
+    },
+    {
+      "id": "car-starter",
+      "revision": 2,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "osc-square",
+          "freqHz": 26,
+          "gain01": 0.25,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 500,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.35,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 900,
+            "q": 1.5
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.15,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 2200,
+            "q": 1.5
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.03,
+        "holdSec": 0.55,
+        "releaseSec": 0.15
+      },
+      "amMod": {
+        "rateHz": 11,
+        "depth01": 0.6
+      }
+    },
+    {
+      "id": "tyre-deck",
+      "revision": 1,
+      "sample": true,
+      "bus": "engine",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.45,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 520,
+            "q": 1.4
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.2,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1400,
+            "q": 2
+          }
+        }
+      ],
+      "amMod": {
+        "rateHz": 28,
+        "depth01": 0.35
+      }
+    },
+    {
+      "id": "organ-pad",
+      "revision": 1,
+      "sample": true,
+      "bus": "event",
+      "layers": [
+        {
+          "src": "osc-sine",
+          "gain01": 0.25,
+          "freqHz": 220
+        },
+        {
+          "src": "osc-tri",
+          "gain01": 0.15,
+          "freqHz": 440,
+          "detuneCents": 4
+        },
+        {
+          "src": "osc-sine",
+          "gain01": 0.1,
+          "freqHz": 660
+        }
+      ],
+      "amMod": {
+        "rateHz": 6,
+        "depth01": 0.15
+      }
+    },
+    {
+      "id": "bass-pluck",
+      "revision": 1,
+      "sample": true,
+      "bus": "event",
+      "layers": [
+        {
+          "src": "osc-tri",
+          "gain01": 0.3,
+          "freqHz": 110
+        },
+        {
+          "src": "osc-saw",
+          "gain01": 0.35,
+          "freqHz": 110,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 1400,
+            "q": 1
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.15,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1500,
+            "q": 2
+          },
+          "decaySec": 0.02
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.004,
+        "holdSec": 0.06,
+        "releaseSec": 0.28
+      }
+    },
+    {
+      "id": "kick",
+      "revision": 2,
+      "sample": true,
+      "bus": "event",
+      "layers": [
+        {
+          "src": "osc-sine",
+          "freqHz": 52,
+          "gain01": 0.4
+        },
+        {
+          "src": "noise-brown",
+          "gain01": 0.25,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 160,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.9,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 900,
+            "q": 1
+          },
+          "decaySec": 0.05
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.45,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 2800,
+            "q": 0.8
+          },
+          "decaySec": 0.012
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.002,
+        "holdSec": 0.02,
+        "releaseSec": 0.2
+      },
+      "pitchGlide": {
+        "fromRatio": 2.6,
+        "toRatio": 1,
+        "sec": 0.06
+      }
+    },
+    {
+      "id": "snare",
+      "revision": 1,
+      "sample": true,
+      "bus": "event",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.45,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1900,
+            "q": 0.9
+          }
+        },
+        {
+          "src": "osc-tri",
+          "gain01": 0.25,
+          "freqHz": 185
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.002,
+        "holdSec": 0.01,
+        "releaseSec": 0.13
+      },
+      "randomise": {
+        "pitchCents": 30,
+        "gainDb": 1
+      }
+    },
+    {
+      "id": "hat",
+      "revision": 1,
+      "sample": true,
+      "bus": "event",
+      "layers": [
+        {
+          "src": "noise-white",
+          "gain01": 0.35,
+          "filter": {
+            "type": "highpass",
+            "freqHz": 7000,
+            "q": 0.7
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.001,
+        "holdSec": 0.004,
+        "releaseSec": 0.045
+      },
+      "randomise": {
+        "pitchCents": 40,
+        "gainDb": 2
+      }
+    },
+    {
+      "id": "market-clink",
+      "revision": 1,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "osc-sine",
+          "gain01": 0.22,
+          "freqHz": 2400
+        },
+        {
+          "src": "osc-sine",
+          "gain01": 0.14,
+          "freqHz": 3710
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.001,
+        "holdSec": 0.004,
+        "releaseSec": 0.25
+      },
+      "randomise": {
+        "pitchCents": 120,
+        "gainDb": 3
+      }
+    },
+    {
+      "id": "deck-rumble",
+      "revision": 1,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.7,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 120,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.25,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 400,
+            "q": 0.8
+          }
+        }
+      ],
+      "amMod": {
+        "rateHz": 0.2,
+        "depth01": 0.3
+      }
+    },
+    {
+      "id": "tyre-joint",
+      "revision": 1,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.6,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 300,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-white",
+          "gain01": 0.4,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 900,
+            "q": 1
+          },
+          "decaySec": 0.04
+        }
+      ],
+      "envelope": {
+        "attackSec": 0.002,
+        "holdSec": 0.02,
+        "releaseSec": 0.15
+      },
+      "randomise": {
+        "pitchCents": 150,
+        "gainDb": 3
+      }
+    },
+    {
+      "id": "train-clatter",
+      "revision": 1,
+      "sample": true,
+      "bus": "ambience",
+      "layers": [
+        {
+          "src": "noise-brown",
+          "gain01": 0.6,
+          "filter": {
+            "type": "lowpass",
+            "freqHz": 250,
+            "q": 0.7
+          }
+        },
+        {
+          "src": "noise-pink",
+          "gain01": 0.3,
+          "filter": {
+            "type": "bandpass",
+            "freqHz": 1200,
+            "q": 1.2
+          }
+        }
+      ],
+      "envelope": {
+        "attackSec": 1.5,
+        "holdSec": 5,
+        "releaseSec": 2.5
+      },
+      "amMod": {
+        "rateHz": 7,
+        "depth01": 0.7
+      }
+    }
+  ]
+}

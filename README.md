@@ -7,5 +7,8 @@ Play it: https://ozon-3.github.io/flyby-sydney/
 
 This repository holds only the built game. The events are invented samples at real venues.
 
+**Test build.** The game now draws the city with its new renderer. Some things are not finished yet; the game lists
+them the first time it opens. To play on the usual renderer, add `?renderer=cpu` to the address.
+
 Map data © OpenStreetMap contributors (ODbL), through OpenFreeMap vector tiles (OpenMapTiles schema) and
 the Overpass API; elevation from the AWS Terrain Tiles (Mapzen terrarium). Credits are shown in the game.

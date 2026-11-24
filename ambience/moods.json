@@ -1,0 +1,82 @@
+{
+  "feed": "moods",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 2,
+  "records": [
+    {
+      "id": "golden",
+      "revision": 1,
+      "sample": true,
+      "sunElevationDeg": [
+        0,
+        6
+      ],
+      "sky": "clear",
+      "tint": "#ffb46b",
+      "tintShare01": 0.12,
+      "hazeShare01": 0.1
+    },
+    {
+      "id": "blue-hour",
+      "revision": 1,
+      "sample": true,
+      "sunElevationDeg": [
+        -8,
+        -4
+      ],
+      "sky": "clear",
+      "tint": "#5a78c8",
+      "tintShare01": 0.1
+    },
+    {
+      "id": "dawn",
+      "revision": 1,
+      "sample": true,
+      "sunElevationDeg": [
+        -6,
+        4
+      ],
+      "sky": "clear",
+      "tint": "#ffc8a0",
+      "tintShare01": 0.08,
+      "bedPatchIds": [
+        "dawn-chorus"
+      ]
+    },
+    {
+      "id": "night-hush",
+      "revision": 1,
+      "sample": true,
+      "sunElevationDeg": [
+        -90,
+        -18
+      ],
+      "tint": "#2a3550",
+      "tintShare01": 0.06,
+      "bedPatchIds": [
+        "night-hush"
+      ]
+    },
+    {
+      "id": "harbour-evening",
+      "revision": 1,
+      "sample": true,
+      "sunElevationDeg": [
+        -6,
+        2
+      ],
+      "tint": "#ff9a6b",
+      "tintShare01": 0.1,
+      "bedPatchIds": [
+        "evening-buzz"
+      ],
+      "where": {
+        "kind": "area",
+        "areaId": "circular-quay"
+      }
+    }
+  ]
+}

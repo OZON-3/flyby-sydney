@@ -1,0 +1,482 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flyby-sydney.local/ambience/schema/people.schema.json",
+  "type": "object",
+  "properties": {
+    "feed": {
+      "const": "people",
+      "description": "Always \"people\" in this file."
+    },
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Contract version. The game reads the versions in config feeds[feed].versions. Additive fields do not bump it; renames, unit changes and removals do."
+    },
+    "generatedAt": {
+      "type": "string",
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d)(?::([0-5]\\d)(?:\\.(\\d+))?)?(Z|[+-](?:[01]\\d|2[0-3]):[0-5]\\d)$",
+      "format": "date-time",
+      "description": "When the backend wrote the file."
+    },
+    "validUntil": {
+      "type": "string",
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d)(?::([0-5]\\d)(?:\\.(\\d+))?)?(Z|[+-](?:[01]\\d|2[0-3]):[0-5]\\d)$",
+      "format": "date-time",
+      "description": "After this a live feed counts as stale: in live mode its values ease to neutral. Required on live feeds in live data; optional on static tables."
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "\"sample\", or the backend’s own label (e.g. \"db:weather/v2\"). Audit only; never shown."
+    },
+    "sample": {
+      "type": "boolean",
+      "description": "True for hand-made data. Live mode refuses a file marked sample unless it is a preset table (config feeds[f].defaultInLive) (decision 4)."
+    },
+    "bundleRevision": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The publication this file belongs to; must equal the manifest’s."
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+            "description": "Stable key. Fades, audio voices, dissolve seeds and per-device memory key on it. Unique within the feed."
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Whole number that rises whenever the row changes (diffing, cache-busting, precedence ties)."
+          },
+          "sample": {
+            "type": "boolean",
+            "description": "True for hand-made data. Must be true in every sample file; must be false in live data."
+          },
+          "classification": {
+            "type": "object",
+            "properties": {
+              "method": {
+                "type": "string",
+                "minLength": 1,
+                "description": "How the preset was chosen upstream, e.g. \"weaviate-hybrid+rules\"."
+              },
+              "version": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Version of that method, e.g. \"2026-12-01\"."
+              },
+              "confidence01": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "A calibrated classification confidence, 0–1. Only when calibrated: Weaviate distances and hybrid scores rank candidates and are not probabilities, so they stay upstream (R14). Below minConfidence01 (config) the game uses the category default."
+              }
+            },
+            "required": [
+              "method",
+              "version"
+            ],
+            "additionalProperties": true,
+            "description": "How the preset ids in this record were chosen upstream."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "maxItems": 16,
+            "description": "Free labels from the backend; the game ignores them."
+          },
+          "rightsRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "Rights note for any recorded sound or authored asset the record names (the owner's own recordings only)."
+          },
+          "where": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "circle"
+                  },
+                  "lat": {
+                    "type": "number",
+                    "minimum": -90,
+                    "maximum": 90,
+                    "description": "Latitude, WGS84 degrees."
+                  },
+                  "lng": {
+                    "type": "number",
+                    "minimum": -180,
+                    "maximum": 180,
+                    "description": "Longitude, WGS84 degrees."
+                  },
+                  "radiusMetres": {
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 60000,
+                    "description": "Radius, metres."
+                  },
+                  "edgeMetres": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 60000,
+                    "description": "Blend width at the edge, metres (weights fade in over it)."
+                  }
+                },
+                "required": [
+                  "kind",
+                  "lat",
+                  "lng",
+                  "radiusMetres"
+                ],
+                "additionalProperties": true
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "polygon"
+                  },
+                  "ring": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "number",
+                          "minimum": -180,
+                          "maximum": 180,
+                          "description": "Longitude, WGS84 degrees."
+                        },
+                        {
+                          "type": "number",
+                          "minimum": -90,
+                          "maximum": 90,
+                          "description": "Latitude, WGS84 degrees."
+                        }
+                      ],
+                      "items": false,
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "description": "[longitude, latitude], WGS84 degrees."
+                    },
+                    "minItems": 4,
+                    "maxItems": 256,
+                    "description": "Closed ring of [lng, lat] points: the last point repeats the first."
+                  },
+                  "edgeMetres": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 60000,
+                    "description": "Blend width at the edge, metres (weights fade in over it)."
+                  }
+                },
+                "required": [
+                  "kind",
+                  "ring"
+                ],
+                "additionalProperties": true,
+                "description": "Also checked: the ring is closed (last point = first) and does not cross itself."
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "path",
+                    "description": "A walkable line: promenades, arrival and dispersal paths."
+                  },
+                  "line": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "number",
+                          "minimum": -180,
+                          "maximum": 180,
+                          "description": "Longitude, WGS84 degrees."
+                        },
+                        {
+                          "type": "number",
+                          "minimum": -90,
+                          "maximum": 90,
+                          "description": "Latitude, WGS84 degrees."
+                        }
+                      ],
+                      "items": false,
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "description": "[longitude, latitude], WGS84 degrees."
+                    },
+                    "minItems": 2,
+                    "maxItems": 512,
+                    "description": "The line, [lng, lat] points in walking order."
+                  },
+                  "widthMetres": {
+                    "type": "number",
+                    "minimum": 0.5,
+                    "maximum": 500,
+                    "description": "Width of the walkable band, metres."
+                  }
+                },
+                "required": [
+                  "kind",
+                  "line",
+                  "widthMetres"
+                ],
+                "additionalProperties": true
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "point"
+                  },
+                  "lat": {
+                    "type": "number",
+                    "minimum": -90,
+                    "maximum": 90,
+                    "description": "Latitude, WGS84 degrees."
+                  },
+                  "lng": {
+                    "type": "number",
+                    "minimum": -180,
+                    "maximum": 180,
+                    "description": "Longitude, WGS84 degrees."
+                  },
+                  "heightMetres": {
+                    "type": "number",
+                    "minimum": -50,
+                    "maximum": 1000,
+                    "description": "Height, metres, measured from heightRef."
+                  },
+                  "heightRef": {
+                    "type": "string",
+                    "enum": [
+                      "ground",
+                      "sea"
+                    ],
+                    "description": "Datum of heightMetres: 'ground' (above the surface there) or 'sea' (above sea level). Default ground."
+                  }
+                },
+                "required": [
+                  "kind",
+                  "lat",
+                  "lng"
+                ],
+                "additionalProperties": true,
+                "description": "A point."
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "area"
+                  },
+                  "areaId": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+                    "x-ref": "area",
+                    "description": "An Area record (areas.json)."
+                  }
+                },
+                "required": [
+                  "kind",
+                  "areaId"
+                ],
+                "additionalProperties": true
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "site"
+                  },
+                  "siteId": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+                    "x-ref": "site",
+                    "description": "A landmark site id (src/shared/landmark-sites.ts), e.g. \"opera-house\"."
+                  }
+                },
+                "required": [
+                  "kind",
+                  "siteId"
+                ],
+                "additionalProperties": true
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "event"
+                  },
+                  "eventId": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+                    "x-ref": "event",
+                    "description": "An event id or series id: from the events feed in live mode, from public/events/events.json in demo mode."
+                  }
+                },
+                "required": [
+                  "kind",
+                  "eventId"
+                ],
+                "additionalProperties": true
+              }
+            ],
+            "description": "Where a record applies. Coordinates are WGS84 degrees."
+          },
+          "peoplePerHectare": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "hour": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 24,
+                  "description": "Sydney hour, 0–24 (fractions allowed)."
+                },
+                "value": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 2000,
+                  "description": "People per hectare at that hour."
+                }
+              },
+              "required": [
+                "hour",
+                "value"
+              ],
+              "additionalProperties": true
+            },
+            "minItems": 1,
+            "maxItems": 48,
+            "description": "People per hectare by Sydney hour (sparse; linear between)."
+          },
+          "weekendFactor": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "Multiplier on Saturdays and Sundays."
+          },
+          "rainFactor": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "Multiplier while it rains (fewer people: below 1)."
+          },
+          "beachHeatFactor": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "Extra share per °C above config beachHeatFromCelsius (PPL6)."
+          },
+          "speedMps": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "Walking speed, metres per second."
+          },
+          "groupSize": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50
+              },
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "Group size [min, max]. Also checked: the first value is not above the second."
+          },
+          "appearanceSetId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+            "x-ref": "preset:appearance",
+            "description": "Clothing palettes (config)."
+          },
+          "dwell": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "lat": {
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90,
+                  "description": "Latitude, WGS84 degrees."
+                },
+                "lng": {
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180,
+                  "description": "Longitude, WGS84 degrees."
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "bench",
+                    "railing",
+                    "steps"
+                  ],
+                  "description": "What people stop at."
+                }
+              },
+              "required": [
+                "lat",
+                "lng",
+                "kind"
+              ],
+              "additionalProperties": true
+            },
+            "maxItems": 64,
+            "description": "Dwell anchors."
+          }
+        },
+        "required": [
+          "id",
+          "revision",
+          "sample",
+          "where",
+          "peoplePerHectare",
+          "weekendFactor",
+          "rainFactor"
+        ],
+        "additionalProperties": true,
+        "description": "Promenade people (PPL1). Placed first on authored paths."
+      },
+      "description": "The rows. A row that fails its check is skipped and counted; the rest still load."
+    }
+  },
+  "required": [
+    "feed",
+    "schemaVersion",
+    "generatedAt",
+    "source",
+    "sample",
+    "bundleRevision",
+    "records"
+  ],
+  "additionalProperties": true,
+  "description": "public/ambience/people.json"
+}

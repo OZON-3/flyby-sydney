@@ -1,0 +1,383 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flyby-sydney.local/ambience/schema/flight.schema.json",
+  "type": "object",
+  "properties": {
+    "feed": {
+      "const": "flight",
+      "description": "Always \"flight\" in this file."
+    },
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Contract version. The game reads the versions in config feeds[feed].versions. Additive fields do not bump it; renames, unit changes and removals do."
+    },
+    "generatedAt": {
+      "type": "string",
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d)(?::([0-5]\\d)(?:\\.(\\d+))?)?(Z|[+-](?:[01]\\d|2[0-3]):[0-5]\\d)$",
+      "format": "date-time",
+      "description": "When the backend wrote the file."
+    },
+    "validUntil": {
+      "type": "string",
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d)(?::([0-5]\\d)(?:\\.(\\d+))?)?(Z|[+-](?:[01]\\d|2[0-3]):[0-5]\\d)$",
+      "format": "date-time",
+      "description": "After this a live feed counts as stale: in live mode its values ease to neutral. Required on live feeds in live data; optional on static tables."
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "\"sample\", or the backend’s own label (e.g. \"db:weather/v2\"). Audit only; never shown."
+    },
+    "sample": {
+      "type": "boolean",
+      "description": "True for hand-made data. Live mode refuses a file marked sample unless it is a preset table (config feeds[f].defaultInLive) (decision 4)."
+    },
+    "bundleRevision": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The publication this file belongs to; must equal the manifest’s."
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+                "description": "Stable key. Fades, audio voices, dissolve seeds and per-device memory key on it. Unique within the feed."
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Whole number that rises whenever the row changes (diffing, cache-busting, precedence ties)."
+              },
+              "sample": {
+                "type": "boolean",
+                "description": "True for hand-made data. Must be true in every sample file; must be false in live data."
+              },
+              "classification": {
+                "type": "object",
+                "properties": {
+                  "method": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "How the preset was chosen upstream, e.g. \"weaviate-hybrid+rules\"."
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Version of that method, e.g. \"2026-12-01\"."
+                  },
+                  "confidence01": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "A calibrated classification confidence, 0–1. Only when calibrated: Weaviate distances and hybrid scores rank candidates and are not probabilities, so they stay upstream (R14). Below minConfidence01 (config) the game uses the category default."
+                  }
+                },
+                "required": [
+                  "method",
+                  "version"
+                ],
+                "additionalProperties": true,
+                "description": "How the preset ids in this record were chosen upstream."
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
+                "maxItems": 16,
+                "description": "Free labels from the backend; the game ignores them."
+              },
+              "rightsRef": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200,
+                "description": "Rights note for any recorded sound or authored asset the record names (the owner's own recordings only)."
+              },
+              "type": {
+                "const": "manoeuvre-style"
+              },
+              "bankFullDeg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 90,
+                "description": "Bank at full turn, degrees."
+              },
+              "bankTauSec": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 5,
+                "description": "Bank response time, seconds."
+              },
+              "pitchFollow01": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "How much the drawn pose follows pitch, 0–1."
+              },
+              "rollFollow01": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "How much the camera follows roll, 0–1."
+              },
+              "wingRockAmpDeg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 15,
+                "description": "Wing rock at rest, degrees."
+              },
+              "wingRockHz": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2,
+                "description": "Wing rock rate, Hz."
+              }
+            },
+            "required": [
+              "id",
+              "revision",
+              "sample",
+              "type",
+              "bankFullDeg",
+              "bankTauSec",
+              "pitchFollow01",
+              "rollFollow01",
+              "wingRockAmpDeg",
+              "wingRockHz"
+            ],
+            "additionalProperties": true,
+            "description": "Jet manoeuvre feel (PLN1); overrides GAME_CONFIG within limits."
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+                "description": "Stable key. Fades, audio voices, dissolve seeds and per-device memory key on it. Unique within the feed."
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Whole number that rises whenever the row changes (diffing, cache-busting, precedence ties)."
+              },
+              "sample": {
+                "type": "boolean",
+                "description": "True for hand-made data. Must be true in every sample file; must be false in live data."
+              },
+              "classification": {
+                "type": "object",
+                "properties": {
+                  "method": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "How the preset was chosen upstream, e.g. \"weaviate-hybrid+rules\"."
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Version of that method, e.g. \"2026-12-01\"."
+                  },
+                  "confidence01": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "A calibrated classification confidence, 0–1. Only when calibrated: Weaviate distances and hybrid scores rank candidates and are not probabilities, so they stay upstream (R14). Below minConfidence01 (config) the game uses the category default."
+                  }
+                },
+                "required": [
+                  "method",
+                  "version"
+                ],
+                "additionalProperties": true,
+                "description": "How the preset ids in this record were chosen upstream."
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
+                "maxItems": 16,
+                "description": "Free labels from the backend; the game ignores them."
+              },
+              "rightsRef": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200,
+                "description": "Rights note for any recorded sound or authored asset the record names (the owner's own recordings only)."
+              },
+              "type": {
+                "const": "transition"
+              },
+              "fromMode": {
+                "type": "string",
+                "enum": [
+                  "fly",
+                  "walk",
+                  "drive"
+                ],
+                "description": "Mode it leaves."
+              },
+              "toMode": {
+                "type": "string",
+                "enum": [
+                  "fly",
+                  "walk",
+                  "drive"
+                ],
+                "description": "Mode it enters."
+              },
+              "touchdownPatchId": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+                "x-ref": "patch",
+                "description": "Touchdown sound."
+              },
+              "settleSec": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 10,
+                "description": "The camera settles over this, seconds."
+              },
+              "surfaceEffectId": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+                "x-ref": "preset:surface-effect",
+                "description": "Spray or dust at contact (config)."
+              }
+            },
+            "required": [
+              "id",
+              "revision",
+              "sample",
+              "type",
+              "fromMode",
+              "toMode",
+              "settleSec",
+              "surfaceEffectId"
+            ],
+            "additionalProperties": true,
+            "description": "Mode transition feel (PLN2)."
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+                "description": "Stable key. Fades, audio voices, dissolve seeds and per-device memory key on it. Unique within the feed."
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Whole number that rises whenever the row changes (diffing, cache-busting, precedence ties)."
+              },
+              "sample": {
+                "type": "boolean",
+                "description": "True for hand-made data. Must be true in every sample file; must be false in live data."
+              },
+              "classification": {
+                "type": "object",
+                "properties": {
+                  "method": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "How the preset was chosen upstream, e.g. \"weaviate-hybrid+rules\"."
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Version of that method, e.g. \"2026-12-01\"."
+                  },
+                  "confidence01": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "A calibrated classification confidence, 0–1. Only when calibrated: Weaviate distances and hybrid scores rank candidates and are not probabilities, so they stay upstream (R14). Below minConfidence01 (config) the game uses the category default."
+                  }
+                },
+                "required": [
+                  "method",
+                  "version"
+                ],
+                "additionalProperties": true,
+                "description": "How the preset ids in this record were chosen upstream."
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
+                "maxItems": 16,
+                "description": "Free labels from the backend; the game ignores them."
+              },
+              "rightsRef": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200,
+                "description": "Rights note for any recorded sound or authored asset the record names (the owner's own recordings only)."
+              },
+              "type": {
+                "const": "landing-feel"
+              },
+              "gearDownAglMetres": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 500,
+                "description": "Gear-down clunk below this height, metres."
+              },
+              "touchdownTrauma01": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Camera trauma at touchdown, 0–1."
+              },
+              "sprayOnWater": {
+                "type": "boolean",
+                "description": "Spray when landing over water."
+              }
+            },
+            "required": [
+              "id",
+              "revision",
+              "sample",
+              "type",
+              "gearDownAglMetres",
+              "touchdownTrauma01",
+              "sprayOnWater"
+            ],
+            "additionalProperties": true,
+            "description": "Landing feel (PLN2)."
+          }
+        ],
+        "description": "flight.json holds three record types, told apart by `type`."
+      },
+      "description": "The rows. A row that fails its check is skipped and counted; the rest still load."
+    }
+  },
+  "required": [
+    "feed",
+    "schemaVersion",
+    "generatedAt",
+    "source",
+    "sample",
+    "bundleRevision",
+    "records"
+  ],
+  "additionalProperties": true,
+  "description": "public/ambience/flight.json"
+}

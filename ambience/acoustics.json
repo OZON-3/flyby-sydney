@@ -1,0 +1,85 @@
+{
+  "feed": "acoustics",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 2,
+  "records": [
+    {
+      "id": "ac-bridge-dawes-point",
+      "revision": 1,
+      "sample": true,
+      "where": {
+        "kind": "circle",
+        "lat": -33.8559,
+        "lng": 151.209,
+        "radiusMetres": 60,
+        "edgeMetres": 30
+      },
+      "profileId": "under-deck",
+      "transitionSec": 1.0
+    },
+    {
+      "id": "ac-bridge-milsons-point",
+      "revision": 1,
+      "sample": true,
+      "where": {
+        "kind": "circle",
+        "lat": -33.8487,
+        "lng": 151.2117,
+        "radiusMetres": 60,
+        "edgeMetres": 30
+      },
+      "profileId": "under-deck",
+      "transitionSec": 1.0
+    },
+    {
+      "id": "ac-rocks-lanes",
+      "revision": 1,
+      "sample": true,
+      "where": {
+        "kind": "polygon",
+        "ring": [
+          [
+            151.2072,
+            -33.8575
+          ],
+          [
+            151.2085,
+            -33.8575
+          ],
+          [
+            151.2087,
+            -33.86
+          ],
+          [
+            151.2074,
+            -33.8601
+          ],
+          [
+            151.2072,
+            -33.8575
+          ]
+        ],
+        "edgeMetres": 15
+      },
+      "profileId": "lane",
+      "transitionSec": 0.8
+    },
+    {
+      "id": "ac-quay-wharf-sheds",
+      "revision": 1,
+      "sample": true,
+      "where": {
+        "kind": "circle",
+        "lat": -33.8609,
+        "lng": 151.211,
+        "radiusMetres": 70,
+        "edgeMetres": 20
+      },
+      "profileId": "wharf-shed",
+      "transitionSec": 0.8
+    }
+  ]
+}

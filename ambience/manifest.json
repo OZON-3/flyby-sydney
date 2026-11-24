@@ -1,0 +1,113 @@
+{
+  "format": "flyby-sydney/ambience-manifest",
+  "bundleRevision": 2,
+  "generatedAt": "2026-11-19T09:35:27Z",
+  "source": "sample",
+  "sample": true,
+  "feeds": [
+    {
+      "feed": "areas",
+      "file": "areas.json",
+      "schemaVersion": 1,
+      "sha256": "773a98402fbd37d2c313389e006fa873d66668e5005d97d613dba4a317daabb6",
+      "bytes": 9938,
+      "records": 14
+    },
+    {
+      "feed": "patches",
+      "file": "patches.json",
+      "schemaVersion": 1,
+      "sha256": "b7a53a758d55223aca12c75a0709f20fccfbc212e96fe3a0805b859330fc0b22",
+      "bytes": 32416,
+      "records": 51
+    },
+    {
+      "feed": "player-sound",
+      "file": "player-sound.json",
+      "schemaVersion": 1,
+      "sha256": "341fd4c6204261e3588f8f83f4f207bba909f2af7c119b9157df7769ac4d2770",
+      "bytes": 898,
+      "records": 3
+    },
+    {
+      "feed": "surfaces",
+      "file": "surfaces.json",
+      "schemaVersion": 1,
+      "sha256": "6f534dcff0a699e500ce7f94af36d59c4c72604d582ef41474552c239c51f6c9",
+      "bytes": 3826,
+      "records": 14
+    },
+    {
+      "feed": "soundscapes",
+      "file": "soundscapes.json",
+      "schemaVersion": 1,
+      "sha256": "be9c227981614e8ee3038f8ce937d1205c153203a4e24e497fefe5656f8aa98e",
+      "bytes": 6743,
+      "records": 6
+    },
+    {
+      "feed": "pacing",
+      "file": "pacing.json",
+      "schemaVersion": 1,
+      "sha256": "adccdd7240e07ba136b0fa0597a5b1e18549d616b783a3fefc96f0363e57d3d3",
+      "bytes": 720,
+      "records": 2
+    },
+    {
+      "feed": "acoustics",
+      "file": "acoustics.json",
+      "schemaVersion": 1,
+      "sha256": "908852a617e1bea15d065b2cd22e17bd5206055a197be9599534da163c76549f",
+      "bytes": 1682,
+      "records": 4
+    },
+    {
+      "feed": "haptics",
+      "file": "haptics.json",
+      "schemaVersion": 1,
+      "sha256": "fad429ee5b959f8efeeb1e2621b6886851275946ce2aa194d88577ef882d3d49",
+      "bytes": 7428,
+      "records": 19
+    },
+    {
+      "feed": "moods",
+      "file": "moods.json",
+      "schemaVersion": 1,
+      "sha256": "97d5f08b5f0ed27bcf7af0479267b42fd18c2e76d3017d72f720f705c42258d6",
+      "bytes": 1460,
+      "records": 5
+    },
+    {
+      "feed": "windows",
+      "file": "windows.json",
+      "schemaVersion": 1,
+      "sha256": "7849ff496f3ebf8ecc53b75019404ee1429ef123b48c746f53289db0232cbd74",
+      "bytes": 2717,
+      "records": 5
+    },
+    {
+      "feed": "atmospheres",
+      "file": "atmospheres.json",
+      "schemaVersion": 1,
+      "sha256": "7cd327234fa55661cc089c623dec5caa6026b982d56ff1e9a08bab4a0c125222",
+      "bytes": 2469,
+      "records": 1
+    },
+    {
+      "feed": "flight",
+      "file": "flight.json",
+      "schemaVersion": 1,
+      "sha256": "fe12bfa181c22e34e5055fcc3a0d9de5105eb740711d81afbae5156e431080dc",
+      "bytes": 1620,
+      "records": 6
+    },
+    {
+      "feed": "ui",
+      "file": "ui.json",
+      "schemaVersion": 1,
+      "sha256": "5f1c3bfb293e6ff8210895c118e2eaffee7029bc11486f693dab13a3a27f5ae6",
+      "bytes": 4080,
+      "records": 15
+    }
+  ]
+}

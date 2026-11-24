@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flyby-sydney.local/ambience/schema/manifest.schema.json",
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "flyby-sydney/ambience-manifest",
+      "description": "Fixed: identifies the file."
+    },
+    "bundleRevision": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The publication. Every listed feed file carries the same value."
+    },
+    "generatedAt": {
+      "type": "string",
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d)(?::([0-5]\\d)(?:\\.(\\d+))?)?(Z|[+-](?:[01]\\d|2[0-3]):[0-5]\\d)$",
+      "format": "date-time",
+      "description": "When the bundle was published."
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "\"sample\", or the backend’s own label."
+    },
+    "sample": {
+      "type": "boolean",
+      "description": "True for the shipped sample bundle."
+    },
+    "feeds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "feed": {
+            "type": "string",
+            "enum": [
+              "areas",
+              "patches",
+              "player-sound",
+              "surfaces",
+              "soundscapes",
+              "emitters",
+              "pacing",
+              "acoustics",
+              "haptics",
+              "moods",
+              "windows",
+              "lights",
+              "weather",
+              "water",
+              "wildlife",
+              "species",
+              "people",
+              "atmospheres",
+              "events",
+              "transit",
+              "signals",
+              "seasons",
+              "calendar",
+              "shows",
+              "rides",
+              "discoveries",
+              "flags",
+              "stars",
+              "camera",
+              "flight",
+              "ui",
+              "places",
+              "scenes",
+              "reactions",
+              "astronomy"
+            ],
+            "description": "Feed name."
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^(?!\\/)(?!.*\\.\\.)[A-Za-z0-9._/-]{1,200}$",
+            "description": "File name beside the manifest, e.g. \"areas.json\"."
+          },
+          "schemaVersion": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "The file’s schemaVersion."
+          },
+          "sha256": {
+            "type": "string",
+            "minLength": 1,
+            "description": "SHA-256 of the file bytes, lower-case hex. Also checked: 64 lower-case hex digits."
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "File size, bytes."
+          },
+          "records": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Record count (audit)."
+          }
+        },
+        "required": [
+          "feed",
+          "file",
+          "schemaVersion",
+          "sha256",
+          "bytes",
+          "records"
+        ],
+        "additionalProperties": true
+      },
+      "minItems": 1,
+      "maxItems": 35,
+      "description": "Each published feed once. A bundle is activated only when every listed feed has arrived, matches its hash and validates."
+    }
+  },
+  "required": [
+    "format",
+    "bundleRevision",
+    "generatedAt",
+    "source",
+    "sample",
+    "feeds"
+  ],
+  "additionalProperties": true,
+  "description": "public/ambience/manifest.json: the bundle (R15). Also checked: each feed is listed once."
+}

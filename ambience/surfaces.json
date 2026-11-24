@@ -1,0 +1,164 @@
+{
+  "feed": "surfaces",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 2,
+  "records": [
+    {
+      "id": "sound-paving",
+      "revision": 2,
+      "sample": true,
+      "type": "surface-sound",
+      "surface": "paving",
+      "patchId": "step-paving",
+      "stepGainDb": -6,
+      "runGainDb": -4
+    },
+    {
+      "id": "sound-grass",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-sound",
+      "surface": "grass",
+      "patchId": "step-grass",
+      "stepGainDb": -9,
+      "runGainDb": -5
+    },
+    {
+      "id": "sound-sand",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-sound",
+      "surface": "sand",
+      "patchId": "step-sand",
+      "stepGainDb": -6,
+      "runGainDb": -2
+    },
+    {
+      "id": "sound-deck",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-sound",
+      "surface": "deck",
+      "patchId": "step-deck",
+      "stepGainDb": -6,
+      "runGainDb": -2
+    },
+    {
+      "id": "sound-road",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-sound",
+      "surface": "road",
+      "patchId": "step-road",
+      "stepGainDb": -6,
+      "runGainDb": -2
+    },
+    {
+      "id": "sound-stairs",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-sound",
+      "surface": "stairs",
+      "patchId": "step-stairs",
+      "stepGainDb": -6,
+      "runGainDb": -2
+    },
+    {
+      "id": "sound-wet",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-sound",
+      "surface": "wet",
+      "patchId": "step-wet",
+      "stepGainDb": -6,
+      "runGainDb": -2
+    },
+    {
+      "id": "response-paving",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-response",
+      "surface": "paving",
+      "footPatchId": "step-paving",
+      "tyrePatchId": "tyre-hum",
+      "particlePresetId": "none",
+      "markLifetimeSec": 0,
+      "wetThreshold01": 0.4
+    },
+    {
+      "id": "response-grass",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-response",
+      "surface": "grass",
+      "footPatchId": "step-grass",
+      "tyrePatchId": "tyre-hum",
+      "particlePresetId": "none",
+      "markLifetimeSec": 0,
+      "wetThreshold01": 0.4
+    },
+    {
+      "id": "response-sand",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-response",
+      "surface": "sand",
+      "footPatchId": "step-sand",
+      "tyrePatchId": "tyre-hum",
+      "particlePresetId": "sand-scuff",
+      "markLifetimeSec": 20,
+      "wetThreshold01": 0.4
+    },
+    {
+      "id": "response-deck",
+      "revision": 2,
+      "sample": true,
+      "type": "surface-response",
+      "surface": "deck",
+      "footPatchId": "step-deck",
+      "tyrePatchId": "tyre-deck",
+      "particlePresetId": "none",
+      "markLifetimeSec": 0,
+      "wetThreshold01": 0.4
+    },
+    {
+      "id": "response-road",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-response",
+      "surface": "road",
+      "footPatchId": "step-road",
+      "tyrePatchId": "tyre-hum",
+      "particlePresetId": "dust-puff",
+      "markLifetimeSec": 0,
+      "wetThreshold01": 0.4
+    },
+    {
+      "id": "response-stairs",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-response",
+      "surface": "stairs",
+      "footPatchId": "step-stairs",
+      "tyrePatchId": "tyre-hum",
+      "particlePresetId": "none",
+      "markLifetimeSec": 0,
+      "wetThreshold01": 0.4
+    },
+    {
+      "id": "response-wet",
+      "revision": 1,
+      "sample": true,
+      "type": "surface-response",
+      "surface": "wet",
+      "footPatchId": "step-wet",
+      "tyrePatchId": "car-road",
+      "particlePresetId": "puddle-splash",
+      "markLifetimeSec": 4,
+      "wetThreshold01": 0.4
+    }
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "feed": "haptics",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 2,
+  "records": [
+    {
+      "id": "haptic-boostStart",
+      "revision": 2,
+      "sample": true,
+      "trigger": "boostStart",
+      "patternMs": [
+        18
+      ],
+      "gamepad": {
+        "durationMs": 120,
+        "weak01": 0.4,
+        "strong01": 0.5
+      },
+      "minGapSec": 0.5,
+      "priority": 1,
+      "ios": {
+        "impacts": [
+          "MEDIUM"
+        ]
+      }
+    },
+    {
+      "id": "haptic-boostHold",
+      "revision": 2,
+      "sample": true,
+      "trigger": "boostHold",
+      "patternMs": [
+        0
+      ],
+      "gamepad": {
+        "durationMs": 200,
+        "weak01": 0.08,
+        "strong01": 0
+      },
+      "minGapSec": 0.18,
+      "priority": 0
+    },
+    {
+      "id": "haptic-touchdown",
+      "revision": 2,
+      "sample": true,
+      "trigger": "touchdown",
+      "patternMs": [
+        24,
+        30,
+        12
+      ],
+      "gamepad": {
+        "durationMs": 160,
+        "weak01": 0.3,
+        "strong01": 0.6
+      },
+      "minGapSec": 1,
+      "priority": 3,
+      "ios": {
+        "impacts": [
+          "HEAVY",
+          "LIGHT"
+        ]
+      }
+    },
+    {
+      "id": "haptic-takeoff",
+      "revision": 2,
+      "sample": true,
+      "trigger": "takeoff",
+      "patternMs": [
+        14
+      ],
+      "gamepad": {
+        "durationMs": 100,
+        "weak01": 0.3,
+        "strong01": 0.2
+      },
+      "minGapSec": 1,
+      "priority": 2,
+      "ios": {
+        "impacts": [
+          "MEDIUM"
+        ]
+      }
+    },
+    {
+      "id": "haptic-stepOut",
+      "revision": 2,
+      "sample": true,
+      "trigger": "stepOut",
+      "patternMs": [
+        10
+      ],
+      "gamepad": {
+        "durationMs": 60,
+        "weak01": 0.25,
+        "strong01": 0
+      },
+      "minGapSec": 0.5,
+      "priority": 1,
+      "ios": {
+        "impacts": [
+          "LIGHT"
+        ]
+      }
+    },
+    {
+      "id": "haptic-kerb",
+      "revision": 2,
+      "sample": true,
+      "trigger": "kerb",
+      "patternMs": [
+        12
+      ],
+      "gamepad": {
+        "durationMs": 70,
+        "weak01": 0.2,
+        "strong01": 0.35
+      },
+      "minGapSec": 0.25,
+      "priority": 0,
+      "ios": {
+        "impacts": [
+          "LIGHT"
+        ]
+      }
+    },
+    {
+      "id": "haptic-lockFull",
+      "revision": 3,
+      "sample": true,
+      "trigger": "lockFull",
+      "patternMs": [
+        10,
+        60,
+        10
+      ],
+      "gamepad": {
+        "durationMs": 60,
+        "weak01": 0.35,
+        "strong01": 0
+      },
+      "minGapSec": 0.5,
+      "priority": 1,
+      "ios": {
+        "impacts": [
+          "LIGHT",
+          "LIGHT"
+        ]
+      }
+    },
+    {
+      "id": "haptic-discovery",
+      "revision": 3,
+      "sample": true,
+      "trigger": "discovery",
+      "patternMs": [
+        10,
+        180,
+        16
+      ],
+      "gamepad": {
+        "durationMs": 90,
+        "weak01": 0.3,
+        "strong01": 0.1
+      },
+      "minGapSec": 30,
+      "priority": 3,
+      "ios": {
+        "impacts": [
+          "LIGHT",
+          "MEDIUM"
+        ]
+      }
+    },
+    {
+      "id": "haptic-firework",
+      "revision": 3,
+      "sample": true,
+      "trigger": "firework",
+      "patternMs": [
+        20
+      ],
+      "gamepad": {
+        "durationMs": 120,
+        "weak01": 0.1,
+        "strong01": 0.5
+      },
+      "minGapSec": 0.4,
+      "falloffMetres": 1500,
+      "priority": 1,
+      "ios": {
+        "maxImpact": "MEDIUM"
+      }
+    },
+    {
+      "id": "haptic-thunder",
+      "revision": 3,
+      "sample": true,
+      "trigger": "thunder",
+      "patternMs": [
+        40,
+        90,
+        60
+      ],
+      "gamepad": {
+        "durationMs": 300,
+        "weak01": 0.1,
+        "strong01": 0.7
+      },
+      "minGapSec": 2,
+      "falloffMetres": 8000,
+      "priority": 1,
+      "ios": {
+        "impacts": [
+          "MEDIUM"
+        ]
+      }
+    },
+    {
+      "id": "haptic-carCall",
+      "revision": 2,
+      "sample": true,
+      "trigger": "carCall",
+      "patternMs": [
+        12
+      ],
+      "gamepad": {
+        "durationMs": 50,
+        "weak01": 0.3,
+        "strong01": 0
+      },
+      "minGapSec": 0.2,
+      "priority": 1,
+      "ios": {
+        "impacts": [
+          "LIGHT"
+        ]
+      }
+    },
+    {
+      "id": "haptic-carBoost",
+      "revision": 1,
+      "sample": true,
+      "trigger": "carBoost",
+      "patternMs": [
+        16
+      ],
+      "gamepad": {
+        "durationMs": 110,
+        "weak01": 0.35,
+        "strong01": 0.5
+      },
+      "minGapSec": 0.5,
+      "priority": 1,
+      "ios": {
+        "impacts": [
+          "MEDIUM"
+        ]
+      }
+    },
+    {
+      "id": "haptic-jumpLand",
+      "revision": 1,
+      "sample": true,
+      "trigger": "jumpLand",
+      "patternMs": [
+        12
+      ],
+      "gamepad": {
+        "durationMs": 70,
+        "weak01": 0.25,
+        "strong01": 0.15
+      },
+      "minGapSec": 0.4,
+      "priority": 1,
+      "ios": {
+        "maxImpact": "MEDIUM"
+      }
+    },
+    {
+      "id": "haptic-carLand",
+      "revision": 1,
+      "sample": true,
+      "trigger": "carLand",
+      "patternMs": [
+        22,
+        30,
+        10
+      ],
+      "gamepad": {
+        "durationMs": 160,
+        "weak01": 0.3,
+        "strong01": 0.6
+      },
+      "minGapSec": 0.5,
+      "priority": 3,
+      "ios": {
+        "impacts": [
+          "HEAVY",
+          "LIGHT"
+        ]
+      }
+    },
+    {
+      "id": "haptic-crash",
+      "revision": 2,
+      "sample": true,
+      "trigger": "crash",
+      "patternMs": [
+        30,
+        30,
+        24
+      ],
+      "gamepad": {
+        "durationMs": 180,
+        "weak01": 0.5,
+        "strong01": 0.8
+      },
+      "minGapSec": 0.1,
+      "priority": 3,
+      "ios": {
+        "impacts": [
+          "HEAVY",
+          "MEDIUM"
+        ]
+      }
+    },
+    {
+      "id": "haptic-handbrake",
+      "revision": 1,
+      "sample": true,
+      "trigger": "handbrake",
+      "patternMs": [
+        10
+      ],
+      "gamepad": {
+        "durationMs": 60,
+        "weak01": 0.2,
+        "strong01": 0.1
+      },
+      "minGapSec": 0.3,
+      "priority": 0,
+      "ios": {
+        "impacts": [
+          "LIGHT"
+        ]
+      }
+    },
+    {
+      "id": "haptic-gear",
+      "revision": 1,
+      "sample": true,
+      "trigger": "gear",
+      "patternMs": [
+        10
+      ],
+      "gamepad": {
+        "durationMs": 60,
+        "weak01": 0.2,
+        "strong01": 0.1
+      },
+      "minGapSec": 1,
+      "priority": 1,
+      "ios": {
+        "impacts": [
+          "LIGHT"
+        ]
+      }
+    },
+    {
+      "id": "haptic-carCallNo",
+      "revision": 3,
+      "sample": true,
+      "trigger": "carCallNo",
+      "patternMs": [
+        20,
+        130,
+        20
+      ],
+      "gamepad": {
+        "durationMs": 40,
+        "weak01": 0.4,
+        "strong01": 0.2,
+        "everyOn": true
+      },
+      "minGapSec": 0.3,
+      "priority": 3,
+      "ios": {
+        "notification": "WARNING"
+      }
+    },
+    {
+      "id": "haptic-door",
+      "revision": 1,
+      "sample": true,
+      "trigger": "door",
+      "patternMs": [
+        18
+      ],
+      "gamepad": {
+        "durationMs": 80,
+        "weak01": 0.3,
+        "strong01": 0.3
+      },
+      "minGapSec": 0.5,
+      "priority": 2
+    }
+  ]
+}

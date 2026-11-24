@@ -1,0 +1,445 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flyby-sydney.local/ambience/schema/atmospheres.schema.json",
+  "type": "object",
+  "properties": {
+    "feed": {
+      "const": "atmospheres",
+      "description": "Always \"atmospheres\" in this file."
+    },
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Contract version. The game reads the versions in config feeds[feed].versions. Additive fields do not bump it; renames, unit changes and removals do."
+    },
+    "generatedAt": {
+      "type": "string",
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d)(?::([0-5]\\d)(?:\\.(\\d+))?)?(Z|[+-](?:[01]\\d|2[0-3]):[0-5]\\d)$",
+      "format": "date-time",
+      "description": "When the backend wrote the file."
+    },
+    "validUntil": {
+      "type": "string",
+      "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d)(?::([0-5]\\d)(?:\\.(\\d+))?)?(Z|[+-](?:[01]\\d|2[0-3]):[0-5]\\d)$",
+      "format": "date-time",
+      "description": "After this a live feed counts as stale: in live mode its values ease to neutral. Required on live feeds in live data; optional on static tables."
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "\"sample\", or the backend’s own label (e.g. \"db:weather/v2\"). Audit only; never shown."
+    },
+    "sample": {
+      "type": "boolean",
+      "description": "True for hand-made data. Live mode refuses a file marked sample unless it is a preset table (config feeds[f].defaultInLive) (decision 4)."
+    },
+    "bundleRevision": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The publication this file belongs to; must equal the manifest’s."
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+            "description": "Stable key. Fades, audio voices, dissolve seeds and per-device memory key on it. Unique within the feed."
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Whole number that rises whenever the row changes (diffing, cache-busting, precedence ties)."
+          },
+          "sample": {
+            "type": "boolean",
+            "description": "True for hand-made data. Must be true in every sample file; must be false in live data."
+          },
+          "classification": {
+            "type": "object",
+            "properties": {
+              "method": {
+                "type": "string",
+                "minLength": 1,
+                "description": "How the preset was chosen upstream, e.g. \"weaviate-hybrid+rules\"."
+              },
+              "version": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Version of that method, e.g. \"2026-12-01\"."
+              },
+              "confidence01": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "A calibrated classification confidence, 0–1. Only when calibrated: Weaviate distances and hybrid scores rank candidates and are not probabilities, so they stay upstream (R14). Below minConfidence01 (config) the game uses the category default."
+              }
+            },
+            "required": [
+              "method",
+              "version"
+            ],
+            "additionalProperties": true,
+            "description": "How the preset ids in this record were chosen upstream."
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "maxItems": 16,
+            "description": "Free labels from the backend; the game ignores them."
+          },
+          "rightsRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "Rights note for any recorded sound or authored asset the record names (the owner's own recordings only)."
+          },
+          "eventId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+            "x-ref": "event",
+            "description": "The event (series): its seriesId, or its id when it has none. Resolved against the events feed in live mode, public/events/events.json in demo mode."
+          },
+          "occurrenceId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+            "description": "One dated occurrence: `${eventId}@YYYY-MM-DD` or the backend’s own id (the occurrenceId of an event row). Atmosphere, cues and cancellation attach here (R13). Absent: a standing atmosphere for every occurrence of the series (sample events move with the day); an occurrence-specific record wins over it."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "scheduled",
+              "live",
+              "cancelled",
+              "postponed"
+            ],
+            "description": "'cancelled' or 'postponed' ends the atmosphere with a plain fade: no cheer, no finale, no departure stream."
+          },
+          "dispersalPaths": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "path",
+                  "description": "A walkable line: promenades, arrival and dispersal paths."
+                },
+                "line": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number",
+                        "minimum": -180,
+                        "maximum": 180,
+                        "description": "Longitude, WGS84 degrees."
+                      },
+                      {
+                        "type": "number",
+                        "minimum": -90,
+                        "maximum": 90,
+                        "description": "Latitude, WGS84 degrees."
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "description": "[longitude, latitude], WGS84 degrees."
+                  },
+                  "minItems": 2,
+                  "maxItems": 512,
+                  "description": "The line, [lng, lat] points in walking order."
+                },
+                "widthMetres": {
+                  "type": "number",
+                  "minimum": 0.5,
+                  "maximum": 500,
+                  "description": "Width of the walkable band, metres."
+                }
+              },
+              "required": [
+                "kind",
+                "line",
+                "widthMetres"
+              ],
+              "additionalProperties": true
+            },
+            "maxItems": 8,
+            "description": "Authored arrival and dispersal paths (PPL3)."
+          },
+          "presetId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+            "description": "Look-and-sound family chosen upstream (config presets.atmosphere: orchestra, rock-stage, club, acoustic, market, food-hall, stadium, gallery-late, festival, family-fair, comedy-room, outdoor-cinema). Unknown ids fall back to the category default."
+          },
+          "indoor": {
+            "type": "boolean",
+            "description": "Indoors: muffled outside."
+          },
+          "attendance": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 200000,
+            "description": "Expected people (clamped by caps)."
+          },
+          "crowd": {
+            "type": "object",
+            "properties": {
+              "spreadMetres": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 2000,
+                "description": "How far the crowd spreads from the venue, metres."
+              },
+              "behaviour": {
+                "type": "string",
+                "enum": [
+                  "face-stage",
+                  "mill",
+                  "queue",
+                  "stream",
+                  "browse"
+                ],
+                "description": "How the crowd moves."
+              }
+            },
+            "required": [
+              "spreadMetres",
+              "behaviour"
+            ],
+            "additionalProperties": true,
+            "description": "The crowd (PPL3)."
+          },
+          "stage": {
+            "type": "object",
+            "properties": {
+              "lat": {
+                "type": "number",
+                "minimum": -90,
+                "maximum": 90,
+                "description": "Latitude, WGS84 degrees."
+              },
+              "lng": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180,
+                "description": "Longitude, WGS84 degrees."
+              },
+              "headingDeg": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 360,
+                "description": "Direction the stage faces, degrees true."
+              },
+              "widthMetres": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 500,
+                "description": "Stage width, metres."
+              }
+            },
+            "required": [
+              "lat",
+              "lng",
+              "headingDeg",
+              "widthMetres"
+            ],
+            "additionalProperties": true,
+            "description": "The stage (crowds face it; beams rise from it)."
+          },
+          "palette": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "minItems": 2,
+            "maxItems": 4,
+            "description": "2–4 stage colours; default from the category colour."
+          },
+          "music": {
+            "type": "object",
+            "properties": {
+              "style": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+                "x-ref": "preset:music-style",
+                "description": "Sequencer style (config)."
+              },
+              "bpm": {
+                "type": "number",
+                "minimum": 40,
+                "maximum": 220,
+                "description": "Tempo, beats per minute (crowds bob to it)."
+              },
+              "key": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4,
+                "description": "Musical key, e.g. \"D\", \"F#m\", \"Bb\"."
+              },
+              "energy01": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "How driving the music is, 0–1."
+              }
+            },
+            "required": [
+              "style",
+              "bpm",
+              "key",
+              "energy01"
+            ],
+            "additionalProperties": true,
+            "description": "The procedural music bed: our own generated music, never a recording or a known tune (PPL4)."
+          },
+          "lights": {
+            "type": "object",
+            "properties": {
+              "beams": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 16,
+                "description": "Sky beams."
+              },
+              "sweepDegPerSec": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 360,
+                "description": "Beam sweep speed, degrees per second."
+              },
+              "strobe": {
+                "type": "boolean",
+                "description": "Strobes go through the flash scheduler."
+              },
+              "skyGlow01": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Glow on the clouds above, 0–1."
+              }
+            },
+            "required": [
+              "beams",
+              "sweepDegPerSec",
+              "strobe",
+              "skyGlow01"
+            ],
+            "additionalProperties": true,
+            "description": "Stage lights and sky glow (PPL5)."
+          },
+          "phases": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "offsetSec": {
+                  "type": "number",
+                  "minimum": -86400,
+                  "maximum": 86400,
+                  "description": "Seconds from the start (negative = before)."
+                },
+                "intensity01": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "Intensity at that moment, 0–1 (linear between)."
+                }
+              },
+              "required": [
+                "offsetSec",
+                "intensity01"
+              ],
+              "additionalProperties": true
+            },
+            "maxItems": 32,
+            "description": "Intensity by seconds from the start (negative = before). Also checked: offsets rise."
+          },
+          "cues": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
+                  "description": "Fires once per occurrence."
+                },
+                "at": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "\"HH:MM\" Sydney time, or \"+MM\" minutes from the start. Also checked: \"HH:MM\" or \"+MM\"."
+                },
+                "cue": {
+                  "type": "string",
+                  "enum": [
+                    "doors",
+                    "cheer",
+                    "interval",
+                    "encore",
+                    "fireworks",
+                    "lights-up"
+                  ],
+                  "description": "What happens."
+                },
+                "intensity01": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "How strong, 0–1."
+                }
+              },
+              "required": [
+                "id",
+                "at",
+                "cue",
+                "intensity01"
+              ],
+              "additionalProperties": true
+            },
+            "maxItems": 16,
+            "description": "Also checked: cue ids are unique."
+          },
+          "steamPlumes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 32,
+            "description": "Food-stall steam plumes (PPL6)."
+          }
+        },
+        "required": [
+          "id",
+          "revision",
+          "sample",
+          "eventId",
+          "status",
+          "presetId",
+          "indoor"
+        ],
+        "additionalProperties": true,
+        "description": "How an event feels: arrival, music, crowd, cues (PPL2). Keyed by event (series) id: one record per occurrence, or one standing record for the series. Also checked: a cancelled or postponed occurrence has no cues."
+      },
+      "description": "The rows. A row that fails its check is skipped and counted; the rest still load."
+    }
+  },
+  "required": [
+    "feed",
+    "schemaVersion",
+    "generatedAt",
+    "source",
+    "sample",
+    "bundleRevision",
+    "records"
+  ],
+  "additionalProperties": true,
+  "description": "public/ambience/atmospheres.json"
+}

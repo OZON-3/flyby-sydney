@@ -1,0 +1,36 @@
+{
+  "feed": "pacing",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 2,
+  "records": [
+    {
+      "id": "pacing-city",
+      "revision": 1,
+      "sample": true,
+      "quietGapSec": 4,
+      "maxForegroundCues": 2,
+      "priorityByCue": {
+        "ferry-horn": 8,
+        "bell": 6,
+        "crowd-cheer": 7,
+        "gull-cry": 2
+      }
+    },
+    {
+      "id": "pacing-circular-quay",
+      "revision": 1,
+      "sample": true,
+      "areaId": "circular-quay",
+      "quietGapSec": 6,
+      "maxForegroundCues": 1,
+      "priorityByCue": {
+        "ferry-horn": 9,
+        "crowd-cheer": 6,
+        "gull-cry": 2
+      }
+    }
+  ]
+}

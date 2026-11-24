@@ -1,0 +1,374 @@
+{
+  "feed": "soundscapes",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-19T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 2,
+  "records": [
+    {
+      "id": "sc-circular-quay",
+      "revision": 2,
+      "sample": true,
+      "where": {
+        "kind": "area",
+        "areaId": "circular-quay"
+      },
+      "layers": [
+        {
+          "patchId": "water-lap",
+          "gain01": 0.6
+        },
+        {
+          "patchId": "crowd-murmur",
+          "gain01": 0.5,
+          "when": {
+            "kind": "weekly",
+            "from": "07:00",
+            "to": "23:30"
+          }
+        },
+        {
+          "patchId": "gull-cry",
+          "gain01": 0.4,
+          "intervalSec": [
+            6,
+            20
+          ],
+          "when": {
+            "kind": "sun",
+            "anchor": "sunrise",
+            "offsetMin": 0,
+            "durationMin": 780
+          }
+        },
+        {
+          "patchId": "ferry-engine",
+          "gain01": 0.3,
+          "when": {
+            "kind": "weekly",
+            "from": "05:30",
+            "to": "00:30"
+          }
+        },
+        {
+          "patchId": "ferry-horn",
+          "gain01": 0.7,
+          "intervalSec": [
+            40,
+            110
+          ],
+          "when": {
+            "kind": "weekly",
+            "from": "06:00",
+            "to": "23:45"
+          }
+        }
+      ],
+      "altitudeFadeMetres": 250,
+      "levelByHour": [
+        0.2,
+        0.16,
+        0.12,
+        0.09,
+        0.05,
+        0.15,
+        0.25,
+        0.35,
+        0.47,
+        0.58,
+        0.7,
+        0.77,
+        0.83,
+        0.9,
+        0.89,
+        0.88,
+        0.86,
+        0.85,
+        0.93,
+        1.0,
+        0.83,
+        0.67,
+        0.5,
+        0.35
+      ]
+    },
+    {
+      "id": "sc-the-rocks",
+      "revision": 1,
+      "sample": true,
+      "where": {
+        "kind": "area",
+        "areaId": "the-rocks"
+      },
+      "layers": [
+        {
+          "patchId": "evening-buzz",
+          "gain01": 0.45
+        },
+        {
+          "patchId": "crowd-murmur",
+          "gain01": 0.35,
+          "when": {
+            "kind": "weekly",
+            "from": "10:00",
+            "to": "23:59"
+          }
+        },
+        {
+          "patchId": "market-clink",
+          "gain01": 0.3,
+          "intervalSec": [
+            3,
+            12
+          ],
+          "when": {
+            "kind": "weekly",
+            "from": "11:00",
+            "to": "23:00"
+          }
+        }
+      ],
+      "altitudeFadeMetres": 150
+    },
+    {
+      "id": "sc-open-harbour",
+      "revision": 1,
+      "sample": true,
+      "where": {
+        "kind": "area",
+        "areaId": "open-harbour"
+      },
+      "layers": [
+        {
+          "patchId": "water-lap",
+          "gain01": 0.5
+        },
+        {
+          "patchId": "ferry-engine",
+          "gain01": 0.2,
+          "when": {
+            "kind": "weekly",
+            "from": "05:30",
+            "to": "00:30"
+          }
+        },
+        {
+          "patchId": "gull-cry",
+          "gain01": 0.3,
+          "intervalSec": [
+            10,
+            30
+          ],
+          "when": {
+            "kind": "sun",
+            "anchor": "sunrise",
+            "offsetMin": 0,
+            "durationMin": 780
+          }
+        }
+      ],
+      "altitudeFadeMetres": 300,
+      "levelByHour": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "sc-royal-botanic-garden",
+      "revision": 1,
+      "sample": true,
+      "where": {
+        "kind": "area",
+        "areaId": "royal-botanic-garden"
+      },
+      "layers": [
+        {
+          "patchId": "dawn-chorus",
+          "gain01": 0.5,
+          "when": {
+            "kind": "sun",
+            "anchor": "civilDawn",
+            "offsetMin": 0,
+            "durationMin": 150
+          }
+        },
+        {
+          "patchId": "night-hush",
+          "gain01": 0.4
+        }
+      ],
+      "altitudeFadeMetres": 200,
+      "levelByHour": [
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "id": "sc-bridge-dawes-point",
+      "revision": 1,
+      "sample": true,
+      "where": {
+        "kind": "circle",
+        "lat": -33.8559,
+        "lng": 151.209,
+        "radiusMetres": 80,
+        "edgeMetres": 40
+      },
+      "layers": [
+        {
+          "patchId": "deck-rumble",
+          "gain01": 0.7
+        },
+        {
+          "patchId": "tyre-joint",
+          "gain01": 0.5,
+          "intervalSec": [
+            0.6,
+            2.5
+          ]
+        },
+        {
+          "patchId": "train-clatter",
+          "gain01": 0.6,
+          "intervalSec": [
+            60,
+            150
+          ]
+        }
+      ],
+      "altitudeFadeMetres": 60,
+      "levelByHour": [
+        0.35,
+        0.3,
+        0.25,
+        0.25,
+        0.3,
+        0.5,
+        0.75,
+        0.95,
+        1.0,
+        0.9,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.85,
+        0.95,
+        1.0,
+        0.95,
+        0.8,
+        0.65,
+        0.55,
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "id": "sc-bridge-milsons-point",
+      "revision": 1,
+      "sample": true,
+      "where": {
+        "kind": "circle",
+        "lat": -33.8487,
+        "lng": 151.2117,
+        "radiusMetres": 80,
+        "edgeMetres": 40
+      },
+      "layers": [
+        {
+          "patchId": "deck-rumble",
+          "gain01": 0.7
+        },
+        {
+          "patchId": "tyre-joint",
+          "gain01": 0.5,
+          "intervalSec": [
+            0.6,
+            2.5
+          ]
+        },
+        {
+          "patchId": "train-clatter",
+          "gain01": 0.6,
+          "intervalSec": [
+            60,
+            150
+          ]
+        }
+      ],
+      "altitudeFadeMetres": 60,
+      "levelByHour": [
+        0.35,
+        0.3,
+        0.25,
+        0.25,
+        0.3,
+        0.5,
+        0.75,
+        0.95,
+        1.0,
+        0.9,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.85,
+        0.95,
+        1.0,
+        0.95,
+        0.8,
+        0.65,
+        0.55,
+        0.5,
+        0.4
+      ]
+    }
+  ]
+}

@@ -13,7 +13,7 @@
     "east": 151.32977031665,
     "north": -33.76439233454519
   },
-  "attribution": "© OpenStreetMap contributors · OpenMapTiles · OpenFreeMap · Overpass API · Elevation: AWS Terrain Tiles (Mapzen)",
+  "attribution": "© OpenStreetMap contributors · OpenMapTiles · OpenFreeMap · Overpass API · Overture Maps Foundation · Elevation: AWS Terrain Tiles (Mapzen)",
   "sources": [
     {
       "name": "OpenStreetMap data via OpenFreeMap vector tiles (OpenMapTiles schema), snapshot 2026-11-15",
@@ -32,7 +32,19 @@
       "url": "https://overpass-api.de/api/interpreter",
       "licence": "ODbL 1.0 (© OpenStreetMap contributors)",
       "retrieved": "2026-11-18"
+    },
+    {
+      "name": "Overture Maps Foundation buildings, release 2026-11-18.0",
+      "url": "https://overturemaps.org",
+      "licence": "Buildings: © OpenStreetMap contributors, Overture Maps Foundation. Available under the Open Database License.",
+      "retrieved": "2026-11-19"
+    },
+    {
+      "name": "Global ML Building Footprints (Microsoft), via Overture Maps",
+      "url": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+      "licence": "Global ML Building Footprints. Licensed by Microsoft under the Open Database License.",
+      "retrieved": "2026-11-19"
     }
   ],
-  "bakedAt": "2026-11-18T09:22:34.103Z"
+  "bakedAt": "2026-11-19T12:12:33.939Z"
 }
