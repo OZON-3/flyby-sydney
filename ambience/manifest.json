@@ -1,6 +1,6 @@
 {
   "format": "flyby-sydney/ambience-manifest",
-  "bundleRevision": 2,
+  "bundleRevision": 3,
   "generatedAt": "2026-11-19T09:35:27Z",
   "source": "sample",
   "sample": true,
@@ -9,7 +9,7 @@
       "feed": "areas",
       "file": "areas.json",
       "schemaVersion": 1,
-      "sha256": "773a98402fbd37d2c313389e006fa873d66668e5005d97d613dba4a317daabb6",
+      "sha256": "1783b03b26c019319130471241dff8e7d548e0ba4ad6b9add36dbf15931489b8",
       "bytes": 9938,
       "records": 14
     },
@@ -17,7 +17,7 @@
       "feed": "patches",
       "file": "patches.json",
       "schemaVersion": 1,
-      "sha256": "b7a53a758d55223aca12c75a0709f20fccfbc212e96fe3a0805b859330fc0b22",
+      "sha256": "69197f67a9659f6f11ad519b96897f43185585dcbce4f76f507f00d1c1392878",
       "bytes": 32416,
       "records": 51
     },
@@ -25,7 +25,7 @@
       "feed": "player-sound",
       "file": "player-sound.json",
       "schemaVersion": 1,
-      "sha256": "341fd4c6204261e3588f8f83f4f207bba909f2af7c119b9157df7769ac4d2770",
+      "sha256": "67128f08f18f03c0d3a3fc68387bfaca010dfee34167c6a66714e6e0aaf22864",
       "bytes": 898,
       "records": 3
     },
@@ -33,7 +33,7 @@
       "feed": "surfaces",
       "file": "surfaces.json",
       "schemaVersion": 1,
-      "sha256": "6f534dcff0a699e500ce7f94af36d59c4c72604d582ef41474552c239c51f6c9",
+      "sha256": "1f23b02a1564722f9231d92d361384fa49c4b197da5a525d9ade5c4a019f0f28",
       "bytes": 3826,
       "records": 14
     },
@@ -41,7 +41,7 @@
       "feed": "soundscapes",
       "file": "soundscapes.json",
       "schemaVersion": 1,
-      "sha256": "be9c227981614e8ee3038f8ce937d1205c153203a4e24e497fefe5656f8aa98e",
+      "sha256": "49db8be4fc80d796021362dcf7cdb5b78cc82ca78592fe723435756cb757c9c3",
       "bytes": 6743,
       "records": 6
     },
@@ -49,7 +49,7 @@
       "feed": "pacing",
       "file": "pacing.json",
       "schemaVersion": 1,
-      "sha256": "adccdd7240e07ba136b0fa0597a5b1e18549d616b783a3fefc96f0363e57d3d3",
+      "sha256": "ad5e54ff5b233916eeb2c9ea093cd1daee082e8a7d01c4120d9be2481bdd7301",
       "bytes": 720,
       "records": 2
     },
@@ -57,7 +57,7 @@
       "feed": "acoustics",
       "file": "acoustics.json",
       "schemaVersion": 1,
-      "sha256": "908852a617e1bea15d065b2cd22e17bd5206055a197be9599534da163c76549f",
+      "sha256": "59f46aad7cc48255b43412c5dc1f1ab6fde0a9eff7b6dd11d9d8b32d48cc3eb4",
       "bytes": 1682,
       "records": 4
     },
@@ -65,7 +65,7 @@
       "feed": "haptics",
       "file": "haptics.json",
       "schemaVersion": 1,
-      "sha256": "fad429ee5b959f8efeeb1e2621b6886851275946ce2aa194d88577ef882d3d49",
+      "sha256": "e1e51ec3061dd790ebc5ac00e4040e8c8d1c1a797c4245bb62489b7a385a86c1",
       "bytes": 7428,
       "records": 19
     },
@@ -73,7 +73,7 @@
       "feed": "moods",
       "file": "moods.json",
       "schemaVersion": 1,
-      "sha256": "97d5f08b5f0ed27bcf7af0479267b42fd18c2e76d3017d72f720f705c42258d6",
+      "sha256": "2a95824e919c43be30eeb26b2392e7799621152544071a5f60a26391cced4aaf",
       "bytes": 1460,
       "records": 5
     },
@@ -81,7 +81,7 @@
       "feed": "windows",
       "file": "windows.json",
       "schemaVersion": 1,
-      "sha256": "7849ff496f3ebf8ecc53b75019404ee1429ef123b48c746f53289db0232cbd74",
+      "sha256": "a97f8347c7a08f4f539090c6c460307df45965c76794161997b7f30fdd01ac76",
       "bytes": 2717,
       "records": 5
     },
@@ -89,7 +89,7 @@
       "feed": "atmospheres",
       "file": "atmospheres.json",
       "schemaVersion": 1,
-      "sha256": "7cd327234fa55661cc089c623dec5caa6026b982d56ff1e9a08bab4a0c125222",
+      "sha256": "fd17a6ddabb8b77fe2758fc73ed73267e5442a05ec74622dc472a7db69e4907e",
       "bytes": 2469,
       "records": 1
     },
@@ -97,7 +97,7 @@
       "feed": "flight",
       "file": "flight.json",
       "schemaVersion": 1,
-      "sha256": "fe12bfa181c22e34e5055fcc3a0d9de5105eb740711d81afbae5156e431080dc",
+      "sha256": "66f4da394a2e600578bd74e5c493e346ded03deff6dafb34e74a480c86edaf61",
       "bytes": 1620,
       "records": 6
     },
@@ -105,7 +105,7 @@
       "feed": "ui",
       "file": "ui.json",
       "schemaVersion": 1,
-      "sha256": "5f1c3bfb293e6ff8210895c118e2eaffee7029bc11486f693dab13a3a27f5ae6",
+      "sha256": "1bac694d4ef57f99e624a7a2173814a6660960778ab91466382e4b98646fd085",
       "bytes": 4080,
       "records": 15
     }

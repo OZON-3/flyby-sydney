@@ -1,0 +1,982 @@
+{
+ "name": "walker-humanoid",
+ "version": 1,
+ "frame": "glTF / three.js: Y up, the character faces +Z, its left is +X. Metres.",
+ "rest_pose": "A-pose: arms 45 degrees below horizontal, palms facing down and in, thumbs forward; legs straight and parallel; feet flat with the soles on y = 0.",
+ "body": {
+  "height": 1.8,
+  "hip_joint_height": 0.9,
+  "shoulder_joint_height": 1.43,
+  "shoulder_line": 1.44,
+  "chin": 1.51,
+  "head_height": 0.29,
+  "head_fraction_of_height": 0.161,
+  "hip_joint_spacing": 0.18,
+  "shoulder_joint_spacing": 0.34,
+  "ankle_height": 0.1,
+  "leg_length_hip_to_ankle": 0.8006,
+  "arm_length_shoulder_to_fingertip": 0.73,
+  "hand_length": 0.2,
+  "shoe_length": 0.3,
+  "backpack_bone": "pivots at the top of the straps (y 1.40, z -0.13); the pack body is 0.30 x 0.42 x 0.13 m behind the upper chest"
+ },
+ "limits_from_brief": "Height 1.80 m; hips 0.90 m and shoulders 1.44 m within +-5% (car seat and jet cockpit fit them); head up to about 1/6 of the height; hands and shoes up to +20%.",
+ "sole_points": {
+  "left": {
+   "heel": {
+    "rest": [
+     0.11183612048625946,
+     0.0,
+     -0.15488935458660125
+    ],
+    "bone": "leftFoot"
+   },
+   "ball": {
+    "rest": [
+     0.11183612048625946,
+     0.0,
+     0.049998933076858515
+    ],
+    "bone": "leftFoot"
+   },
+   "tip": {
+    "rest": [
+     0.11183612048625946,
+     0.0,
+     0.13495105636119842
+    ],
+    "bone": "leftToes"
+   }
+  },
+  "right": {
+   "heel": {
+    "rest": [
+     -0.11299154162406921,
+     0.0,
+     -0.1562615429162979
+    ],
+    "bone": "rightFoot"
+   },
+   "ball": {
+    "rest": [
+     -0.11299154162406921,
+     0.0,
+     0.04975916594266891
+    ],
+    "bone": "rightFoot"
+   },
+   "tip": {
+    "rest": [
+     -0.11299154162406921,
+     0.0,
+     0.13519661259651183
+    ],
+    "bone": "rightToes"
+   }
+  }
+ },
+ "skinning": {
+  "rule": "Skin the walker to these joints by name. Keep the rest pose and joint positions; a mesh may be fuller or slimmer around them. Weight 'root' with nothing. The backpack mesh goes on 'backpack'; its straps on 'upperChest'. Fingers bend as one mitten on 'leftFingers'/'rightFingers'.",
+  "joint_order_in_glb": [
+   "root",
+   "hips",
+   "leftUpperLeg",
+   "leftLowerLeg",
+   "leftFoot",
+   "leftToes",
+   "rightUpperLeg",
+   "rightLowerLeg",
+   "rightFoot",
+   "rightToes",
+   "spine",
+   "chest",
+   "upperChest",
+   "backpack",
+   "leftShoulder",
+   "leftUpperArm",
+   "leftLowerArm",
+   "leftHand",
+   "leftFingers",
+   "leftThumb",
+   "neck",
+   "head",
+   "rightShoulder",
+   "rightUpperArm",
+   "rightLowerArm",
+   "rightHand",
+   "rightFingers",
+   "rightThumb"
+  ]
+ },
+ "bones": [
+  {
+   "name": "root",
+   "parent": null,
+   "head": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "tail": [
+    0.0,
+    0.0,
+    0.18
+   ],
+   "length": 0.18,
+   "rest_local": {
+    "translation": [
+     0,
+     0,
+     0
+    ],
+    "rotation_xyzw": [
+     0,
+     0.707107,
+     0.707107,
+     0
+    ]
+   },
+   "deform": false,
+   "local_axes": "Y along the bone; Z up in the rest pose",
+   "drives_from_cmu": null
+  },
+  {
+   "name": "hips",
+   "parent": "root",
+   "head": [
+    0.0,
+    0.95,
+    0.0
+   ],
+   "tail": [
+    0.0,
+    1.0299999713897705,
+    -0.004999999888241291
+   ],
+   "length": 0.0802,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.0,
+     0.95
+    ],
+    "rotation_xyzw": [
+     0.0,
+     -0.684698,
+     -0.728827,
+     0.0
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "root"
+  },
+  {
+   "name": "spine",
+   "parent": "hips",
+   "head": [
+    0.0,
+    1.03,
+    -0.005
+   ],
+   "tail": [
+    0.0,
+    1.149999976158142,
+    -0.009999999776482582
+   ],
+   "length": 0.1201,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.080156,
+     -0.0
+    ],
+    "rotation_xyzw": [
+     0.010388,
+     0.0,
+     0.0,
+     0.999946
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "lowerback"
+  },
+  {
+   "name": "chest",
+   "parent": "spine",
+   "head": [
+    0.0,
+    1.15,
+    -0.01
+   ],
+   "tail": [
+    0.0,
+    1.2699999809265137,
+    -0.012000000104308128
+   ],
+   "length": 0.12,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.120104,
+     -0.0
+    ],
+    "rotation_xyzw": [
+     0.012488,
+     -0.0,
+     0.0,
+     0.999922
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "upperback"
+  },
+  {
+   "name": "upperChest",
+   "parent": "chest",
+   "head": [
+    0.0,
+    1.27,
+    -0.012
+   ],
+   "tail": [
+    0.0,
+    1.440000057220459,
+    -0.019999999552965164
+   ],
+   "length": 0.1702,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.120017,
+     -0.0
+    ],
+    "rotation_xyzw": [
+     -0.015179,
+     0.0,
+     -0.0,
+     0.999885
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "thorax"
+  },
+  {
+   "name": "neck",
+   "parent": "upperChest",
+   "head": [
+    0.0,
+    1.44,
+    -0.02
+   ],
+   "tail": [
+    0.0,
+    1.5399999618530273,
+    0.0
+   ],
+   "length": 0.102,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.170188,
+     0.0
+    ],
+    "rotation_xyzw": [
+     0.121906,
+     -0.0,
+     0.0,
+     0.992542
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "lowerneck"
+  },
+  {
+   "name": "head",
+   "parent": "neck",
+   "head": [
+    0,
+    1.5070000000000001,
+    0
+   ],
+   "tail": [
+    0.0,
+    1.7669999599456787,
+    0.0
+   ],
+   "length": 0.26,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.069621,
+     0.006472
+    ],
+    "rotation_xyzw": [
+     -0.098538,
+     -0.0,
+     -0.0,
+     0.995133
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "head"
+  },
+  {
+   "name": "leftShoulder",
+   "parent": "upperChest",
+   "head": [
+    0.025,
+    1.4,
+    -0.02
+   ],
+   "tail": [
+    0.17000000178813934,
+    1.4299999475479126,
+    -0.029999999329447746
+   ],
+   "length": 0.1484,
+   "rest_local": {
+    "translation": [
+     0.025,
+     0.130232,
+     -0.00188
+    ],
+    "rotation_xyzw": [
+     -0.007913,
+     0.036116,
+     -0.630391,
+     0.775397
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "lclavicle"
+  },
+  {
+   "name": "leftUpperArm",
+   "parent": "leftShoulder",
+   "head": [
+    0.17,
+    1.36,
+    -0.07
+   ],
+   "tail": [
+    0.357,
+    1.1,
+    -0.078
+   ],
+   "length": 0.32036384819329167,
+   "rest_local": {
+    "translation": [
+     0.068548,
+     0.136953,
+     -0.040865
+    ],
+    "rotation_xyzw": [
+     0.029668,
+     0.016005,
+     -0.474505,
+     0.879607
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "lhumerus"
+  },
+  {
+   "name": "leftLowerArm",
+   "parent": "leftUpperArm",
+   "head": [
+    0.357,
+    1.1,
+    -0.078
+   ],
+   "tail": [
+    0.497,
+    0.93,
+    -0.066
+   ],
+   "length": 0.22055386854426567,
+   "rest_local": {
+    "translation": [
+     0.051619,
+     0.316076,
+     -0.008
+    ],
+    "rotation_xyzw": [
+     0.0,
+     -0.0,
+     -0.0,
+     1
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "lradius"
+  },
+  {
+   "name": "leftHand",
+   "parent": "leftLowerArm",
+   "head": [
+    0.497,
+    0.93,
+    -0.066
+   ],
+   "tail": [
+    0.551,
+    0.852,
+    -0.057
+   ],
+   "length": 0.09529428385235912,
+   "rest_local": {
+    "translation": [
+     0.021213,
+     0.219203,
+     0.012
+    ],
+    "rotation_xyzw": [
+     0.0,
+     -0.0,
+     0.0,
+     1
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "lhand"
+  },
+  {
+   "name": "leftFingers",
+   "parent": "leftHand",
+   "head": [
+    0.551,
+    0.852,
+    -0.057
+   ],
+   "tail": [
+    0.6182000041007996,
+    0.7847999930381775,
+    -0.05700000002980232
+   ],
+   "length": 0.095,
+   "rest_local": {
+    "translation": [
+     0.016971,
+     0.093338,
+     0.009
+    ],
+    "rotation_xyzw": [
+     -0.0,
+     0.0,
+     -0.0,
+     1
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": null
+  },
+  {
+   "name": "leftThumb",
+   "parent": "leftHand",
+   "head": [
+    0.52,
+    0.905,
+    -0.035
+   ],
+   "tail": [
+    0.5399999618530273,
+    0.8749998807907104,
+    0.019999999552965164
+   ],
+   "length": 0.0658,
+   "rest_local": {
+    "translation": [
+     0.001414,
+     0.033941,
+     0.031
+    ],
+    "rotation_xyzw": [
+     0.417799,
+     -0.333302,
+     -0.237997,
+     0.810994
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z up in the rest pose",
+   "drives_from_cmu": null
+  },
+  {
+   "name": "rightShoulder",
+   "parent": "upperChest",
+   "head": [
+    -0.025,
+    1.4,
+    -0.02
+   ],
+   "tail": [
+    -0.17000000178813934,
+    1.4299999475479126,
+    -0.029999999329447746
+   ],
+   "length": 0.1484,
+   "rest_local": {
+    "translation": [
+     -0.025,
+     0.130232,
+     -0.00188
+    ],
+    "rotation_xyzw": [
+     -0.007913,
+     -0.036116,
+     0.630391,
+     0.775397
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "rclavicle"
+  },
+  {
+   "name": "rightUpperArm",
+   "parent": "rightShoulder",
+   "head": [
+    -0.17,
+    1.36,
+    -0.07
+   ],
+   "tail": [
+    -0.357,
+    1.1,
+    -0.078
+   ],
+   "length": 0.32036384819329167,
+   "rest_local": {
+    "translation": [
+     -0.068548,
+     0.136953,
+     -0.040865
+    ],
+    "rotation_xyzw": [
+     0.029668,
+     -0.016005,
+     0.474505,
+     0.879607
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "rhumerus"
+  },
+  {
+   "name": "rightLowerArm",
+   "parent": "rightUpperArm",
+   "head": [
+    -0.357,
+    1.1,
+    -0.078
+   ],
+   "tail": [
+    -0.497,
+    0.93,
+    -0.066
+   ],
+   "length": 0.22055386854426567,
+   "rest_local": {
+    "translation": [
+     -0.051619,
+     0.316076,
+     -0.008
+    ],
+    "rotation_xyzw": [
+     0.0,
+     0.0,
+     0.0,
+     1
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "rradius"
+  },
+  {
+   "name": "rightHand",
+   "parent": "rightLowerArm",
+   "head": [
+    -0.497,
+    0.93,
+    -0.066
+   ],
+   "tail": [
+    -0.551,
+    0.852,
+    -0.057
+   ],
+   "length": 0.09529428385235912,
+   "rest_local": {
+    "translation": [
+     -0.021213,
+     0.219203,
+     0.012
+    ],
+    "rotation_xyzw": [
+     0.0,
+     0.0,
+     -0.0,
+     1
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "rhand"
+  },
+  {
+   "name": "rightFingers",
+   "parent": "rightHand",
+   "head": [
+    -0.551,
+    0.852,
+    -0.057
+   ],
+   "tail": [
+    -0.6182000041007996,
+    0.7847999930381775,
+    -0.05700000002980232
+   ],
+   "length": 0.095,
+   "rest_local": {
+    "translation": [
+     -0.016971,
+     0.093338,
+     0.009
+    ],
+    "rotation_xyzw": [
+     -0.0,
+     -0.0,
+     0.0,
+     1
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": null
+  },
+  {
+   "name": "rightThumb",
+   "parent": "rightHand",
+   "head": [
+    -0.52,
+    0.905,
+    -0.035
+   ],
+   "tail": [
+    -0.5399999618530273,
+    0.8749998807907104,
+    0.019999999552965164
+   ],
+   "length": 0.0658,
+   "rest_local": {
+    "translation": [
+     -0.001414,
+     0.033941,
+     0.031
+    ],
+    "rotation_xyzw": [
+     0.417799,
+     0.333302,
+     0.237997,
+     0.810994
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z up in the rest pose",
+   "drives_from_cmu": null
+  },
+  {
+   "name": "leftUpperLeg",
+   "parent": "hips",
+   "head": [
+    0.09,
+    0.9,
+    0.0
+   ],
+   "tail": [
+    0.09000000357627869,
+    0.5,
+    0.009999999776482582
+   ],
+   "length": 0.4001,
+   "rest_local": {
+    "translation": [
+     0.09,
+     -0.049903,
+     -0.003119
+    ],
+    "rotation_xyzw": [
+     0.0,
+     0.018711,
+     -0.999825,
+     0.0
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "lfemur"
+  },
+  {
+   "name": "leftLowerLeg",
+   "parent": "leftUpperLeg",
+   "head": [
+    0.09,
+    0.5,
+    0.01
+   ],
+   "tail": [
+    0.09000000357627869,
+    0.09999999403953552,
+    -0.009999999776482582
+   ],
+   "length": 0.4005,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.400125,
+     0.0
+    ],
+    "rotation_xyzw": [
+     -0.037468,
+     0.0,
+     -0.0,
+     0.999298
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "ltibia"
+  },
+  {
+   "name": "leftFoot",
+   "parent": "leftLowerLeg",
+   "head": [
+    0.09,
+    0.1,
+    -0.01
+   ],
+   "tail": [
+    0.0949999988079071,
+    0.030000001192092896,
+    0.14000000059604645
+   ],
+   "length": 0.1656,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.400499,
+     1e-06
+    ],
+    "rotation_xyzw": [
+     0.558086,
+     -0.01427,
+     0.008597,
+     0.829616
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z up in the rest pose",
+   "drives_from_cmu": "lfoot"
+  },
+  {
+   "name": "leftToes",
+   "parent": "leftFoot",
+   "head": [
+    0.11,
+    0.03,
+    0.07
+   ],
+   "tail": [
+    0.10999999940395355,
+    0.02500000037252903,
+    0.1550000011920929
+   ],
+   "length": 0.0851,
+   "rest_local": {
+    "translation": [
+     -0.017324,
+     0.102654,
+     -0.029361
+    ],
+    "rotation_xyzw": [
+     0.187683,
+     0.004083,
+     -0.016152,
+     0.982088
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z up in the rest pose",
+   "drives_from_cmu": "ltoes"
+  },
+  {
+   "name": "rightUpperLeg",
+   "parent": "hips",
+   "head": [
+    -0.09,
+    0.9,
+    0.0
+   ],
+   "tail": [
+    -0.09000000357627869,
+    0.5,
+    0.009999999776482582
+   ],
+   "length": 0.4001,
+   "rest_local": {
+    "translation": [
+     -0.09,
+     -0.049903,
+     -0.003119
+    ],
+    "rotation_xyzw": [
+     0.0,
+     0.018711,
+     -0.999825,
+     0.0
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "rfemur"
+  },
+  {
+   "name": "rightLowerLeg",
+   "parent": "rightUpperLeg",
+   "head": [
+    -0.09,
+    0.5,
+    0.01
+   ],
+   "tail": [
+    -0.09000000357627869,
+    0.09999999403953552,
+    -0.009999999776482582
+   ],
+   "length": 0.4005,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.400125,
+     0.0
+    ],
+    "rotation_xyzw": [
+     -0.037468,
+     0.0,
+     -0.0,
+     0.999298
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": "rtibia"
+  },
+  {
+   "name": "rightFoot",
+   "parent": "rightLowerLeg",
+   "head": [
+    -0.09,
+    0.1,
+    -0.01
+   ],
+   "tail": [
+    -0.0949999988079071,
+    0.030000001192092896,
+    0.14000000059604645
+   ],
+   "length": 0.1656,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.400499,
+     1e-06
+    ],
+    "rotation_xyzw": [
+     0.558086,
+     0.01427,
+     -0.008597,
+     0.829616
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z up in the rest pose",
+   "drives_from_cmu": "rfoot"
+  },
+  {
+   "name": "rightToes",
+   "parent": "rightFoot",
+   "head": [
+    -0.11,
+    0.03,
+    0.07
+   ],
+   "tail": [
+    -0.10999999940395355,
+    0.02500000037252903,
+    0.1550000011920929
+   ],
+   "length": 0.0851,
+   "rest_local": {
+    "translation": [
+     0.017324,
+     0.102654,
+     -0.029361
+    ],
+    "rotation_xyzw": [
+     0.187683,
+     -0.004083,
+     0.016152,
+     0.982088
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z up in the rest pose",
+   "drives_from_cmu": "rtoes"
+  },
+  {
+   "name": "backpack",
+   "parent": "upperChest",
+   "head": [
+    0.0,
+    1.4,
+    -0.13
+   ],
+   "tail": [
+    0.0,
+    1.0,
+    -0.1899999976158142
+   ],
+   "length": 0.4045,
+   "rest_local": {
+    "translation": [
+     0.0,
+     0.135403,
+     -0.111759
+    ],
+    "rotation_xyzw": [
+     -0.0,
+     -0.097801,
+     0.995206,
+     0.0
+    ]
+   },
+   "deform": true,
+   "local_axes": "Y along the bone; Z forward (+Z) in the rest pose",
+   "drives_from_cmu": null
+  }
+ ],
+ "fit_notes": "walker-hi3d: arm chain, toes and sole points moved to the Hi3D mesh (shorter cartoon arms, shoulder joint 1.36 m under a 1.40 m shoulder line, head joint lowered with the shortened neck, chunky 0.335 m shoes). Names, hierarchy and rest rotations are rig/humanoid.json."
+}
