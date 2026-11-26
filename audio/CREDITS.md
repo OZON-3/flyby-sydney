@@ -56,3 +56,27 @@ it anyway. The engine note, road roar, tyres, indicator and handbrake are synthe
 Each `car/` file holds one bank, made like the steps (high-passed, trimmed to the onset, faded, loudness-matched,
 Ogg Opus and AAC in MP4) by `flyby-sydney-lab/audio-sources/convert.mjs`, where the originals and the licence texts
 are kept.
+
+## Luna Park's rides (`rides/`)
+
+The carousel's band organ and the riders' screams at Luna Park (`rides/`) are made from these recordings, all released
+under **Creative Commons CC0 1.0** (https://creativecommons.org/publicdomain/zero/1.0/), as each page stated on
+25 Nov 2026. Credit is not required. We give it anyway. The coasters' roll and clatter, the chain lift, the launches,
+the Hair Raiser and Volaré's chairs are synthesised.
+
+| Files | Source | Author | Freesound ID | Licence |
+|---|---|---|---|---|
+| `rides/organ.*` | Large Band Organ at Carousel (Griffith Park merry-go-round): one strain (56.5 s) of its third song, "Over the Waves Waltz" (Juventino Rosas, 1888, public domain). The page names that song; the others are untitled and not used. https://freesound.org/people/CHallSmith/sounds/870752/ | CHallSmith | 870752 | CC0 1.0 |
+| `rides/screams.*` (take 1) | scream ride start.aif. https://freesound.org/people/martian/sounds/19346/ | martian | 19346 | CC0 1.0 |
+| `rides/screams.*` (takes 2 and 3) | coaster 01.aiff (roller coaster screams passes), 2.15–4.15 s and 35.4–37.4 s. https://freesound.org/people/martian/sounds/19344/ | martian | 19344 | CC0 1.0 |
+| `rides/screams.*` (take 4) | SCB005_Rollercoaster001.wav (Santa Cruz Beach Boardwalk), 1.05–3.25 s. https://freesound.org/people/tec_studio/sounds/98182/ | tec_studio | 98182 | CC0 1.0 |
+
+Three more CC0 recordings were downloaded with these, to judge the synthesised voices against, and are not in the
+game: Rollercoaster ratchet.wav by esperar (171510), roller coaster field recording by Garuda1982 (535910), and funfair
+France people passing by.wav by barkenov (406825).
+
+The banks are made from the pages' high-quality MP3 previews (Freesound's originals need a sign-in) by
+`flyby-sydney-lab/audio-sources/convert-rides.mjs`. The organ's strain is high-passed and its end crossfaded into the
+music before its start, so it loops without a seam, followed by its first 3 s again. The screams are high-passed at
+300 Hz, faded and loudness-matched. Each bank is published as Ogg Opus (`.ogg`) and as AAC in MP4 (`.m4a`), and the
+game uses the format the browser plays. The previews themselves are not kept in the repository.

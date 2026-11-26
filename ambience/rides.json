@@ -1,0 +1,243 @@
+{
+  "feed": "rides",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-25T21:00:00+11:00",
+  "source": "sample",
+  "sample": true,
+  "bundleRevision": 3,
+  "records": [
+    {
+      "id": "ride-wheel",
+      "revision": 1,
+      "sample": true,
+      "rideId": "wheel",
+      "motionProfileId": "wheel-turn",
+      "cycleSec": 288,
+      "dwellSec": 192,
+      "phaseOffsetSec": 0,
+      "rpm": 2,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-carousel",
+      "revision": 1,
+      "sample": true,
+      "rideId": "carousel",
+      "motionProfileId": "carousel-spin",
+      "cycleSec": 225,
+      "dwellSec": 45,
+      "phaseOffsetSec": 37,
+      "rpm": 6,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-volare",
+      "revision": 1,
+      "sample": true,
+      "rideId": "volare",
+      "motionProfileId": "wave-swinger",
+      "cycleSec": 210,
+      "dwellSec": 60,
+      "phaseOffsetSec": 81,
+      "rpm": 10,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-tango",
+      "revision": 1,
+      "sample": true,
+      "rideId": "tango",
+      "motionProfileId": "music-express",
+      "cycleSec": 300,
+      "dwellSec": 60,
+      "phaseOffsetSec": 13,
+      "rpm": 13,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-hair-raiser",
+      "revision": 1,
+      "sample": true,
+      "rideId": "hairRaiser",
+      "motionProfileId": "drop-tower",
+      "cycleSec": 71.7,
+      "dwellSec": 40,
+      "phaseOffsetSec": 22,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-big-dipper",
+      "revision": 1,
+      "sample": true,
+      "rideId": "bigDipper",
+      "motionProfileId": "launched-coaster",
+      "cycleSec": 106.4,
+      "dwellSec": 35,
+      "phaseOffsetSec": 5,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-wild-mouse",
+      "revision": 1,
+      "sample": true,
+      "rideId": "wildMouse",
+      "motionProfileId": "wild-mouse",
+      "cycleSec": 102.3,
+      "dwellSec": 20,
+      "phaseOffsetSec": 11,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-dodgems",
+      "revision": 1,
+      "sample": true,
+      "rideId": "dodgems",
+      "motionProfileId": "dodgem-floor",
+      "cycleSec": 160,
+      "dwellSec": 40,
+      "phaseOffsetSec": 50,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-sledgehammer",
+      "revision": 1,
+      "sample": true,
+      "rideId": "sledgehammer",
+      "motionProfileId": "pendulum-ring",
+      "cycleSec": 200,
+      "dwellSec": 60,
+      "phaseOffsetSec": 64,
+      "rpm": 15,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-boomerang",
+      "revision": 1,
+      "sample": true,
+      "rideId": "boomerang",
+      "motionProfileId": "shuttle-coaster",
+      "cycleSec": 101.9,
+      "dwellSec": 45,
+      "phaseOffsetSec": 29,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-loopy-lighthouse",
+      "revision": 1,
+      "sample": true,
+      "rideId": "loopyLighthouse",
+      "motionProfileId": "bounce-tower",
+      "cycleSec": 130,
+      "dwellSec": 40,
+      "phaseOffsetSec": 7,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-silly-sub",
+      "revision": 1,
+      "sample": true,
+      "rideId": "sillySub",
+      "motionProfileId": "crazy-bus",
+      "cycleSec": 165,
+      "dwellSec": 45,
+      "phaseOffsetSec": 45,
+      "rpm": 10,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-freaky-frogs",
+      "revision": 1,
+      "sample": true,
+      "rideId": "freakyFrogs",
+      "motionProfileId": "hop-ride",
+      "cycleSec": 165,
+      "dwellSec": 45,
+      "phaseOffsetSec": 18,
+      "rpm": 6,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-bug",
+      "revision": 1,
+      "sample": true,
+      "rideId": "bug",
+      "motionProfileId": "kiddie-wheel",
+      "cycleSec": 195,
+      "dwellSec": 45,
+      "phaseOffsetSec": 71,
+      "rpm": 5,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-cloud-nine",
+      "revision": 1,
+      "sample": true,
+      "rideId": "cloudNine",
+      "motionProfileId": "balloon-ride",
+      "cycleSec": 165,
+      "dwellSec": 45,
+      "phaseOffsetSec": 33,
+      "rpm": 7,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    },
+    {
+      "id": "ride-little-nipper",
+      "revision": 1,
+      "sample": true,
+      "rideId": "littleNipper",
+      "motionProfileId": "family-coaster",
+      "cycleSec": 112.9,
+      "dwellSec": 40,
+      "phaseOffsetSec": 52,
+      "running": true,
+      "when": {
+        "kind": "always"
+      }
+    }
+  ]
+}

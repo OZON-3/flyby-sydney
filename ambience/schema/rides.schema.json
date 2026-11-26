@@ -136,6 +136,10 @@
             "maximum": 30,
             "description": "Turns per minute while running."
           },
+          "running": {
+            "type": "boolean",
+            "description": "The ride's switch (the park's open or closed status): false stands it at its loading pose, after it finishes the ride under way. The ride runs while this is true and its `when` is open."
+          },
           "when": {
             "anyOf": [
               {
@@ -353,10 +357,11 @@
           "cycleSec",
           "dwellSec",
           "phaseOffsetSec",
+          "running",
           "when"
         ],
         "additionalProperties": true,
-        "description": "A moving Luna Park ride (PLN4)."
+        "description": "A moving Luna Park ride (PLN4). The rides are base content, priced by their own cost gate: they do not wait for PLN4's governor tier (src/landmarks/luna-rides/)."
       },
       "description": "The rows. A row that fails its check is skipped and counted; the rest still load."
     }

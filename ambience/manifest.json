@@ -94,6 +94,14 @@
       "records": 1
     },
     {
+      "feed": "rides",
+      "file": "rides.json",
+      "schemaVersion": 1,
+      "sha256": "d19ac6aa7f7ff16e499008a5e5387b4d8a497f6bd687ecd9f7cac8db220e0b75",
+      "bytes": 5138,
+      "records": 16
+    },
+    {
       "feed": "flight",
       "file": "flight.json",
       "schemaVersion": 1,

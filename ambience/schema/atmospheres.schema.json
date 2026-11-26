@@ -178,7 +178,7 @@
           "presetId": {
             "type": "string",
             "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@-]{0,127}$",
-            "description": "Look-and-sound family chosen upstream (config presets.atmosphere: orchestra, rock-stage, club, acoustic, market, food-hall, stadium, gallery-late, festival, family-fair, comedy-room, outdoor-cinema). Unknown ids fall back to the category default."
+            "description": "Look-and-sound family chosen upstream (config presets.atmosphere: orchestra, rock-stage, club, acoustic, market, food-hall, stadium, gallery-late, festival, family-fair, comedy-room, outdoor-cinema, fireworks). Unknown ids fall back to the category default."
           },
           "indoor": {
             "type": "boolean",
